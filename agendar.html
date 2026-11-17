@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agendar horário | Dra. Thalia Serra · Fisioterapia em Itabirito</title>
+<meta name="description" content="Agende online sua avaliação ou sessão de fisioterapia com a Dra. Thalia Serra em Itabirito/MG — no consultório ou em domicílio.">
+<meta name="theme-color" content="#0E1613">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230E1613'/%3E%3Cpath d='M14 44 A20 20 0 0 1 50 30' fill='none' stroke='%23F3C3C1' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='44' r='5' fill='%23AFC4A5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1613;--ink2:#16221E;--ink3:#22312B;--sage:#AFC4A5;--sage-d:#7E9A74;--sage-l:#E4ECDF;
+  --lime:#F3C3C1;--rose-l:#F7E4E3;--bordo:#7B1E2E;--cream:#F4F1EA;--paper:#FBF9F5;--line:#E6E0D4;
+  --text:#1A2420;--muted:#5E6B66;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--body:Manrope,system-ui,sans-serif;
+  --pad:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400}
+[hidden]{display:none !important}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:0;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .18s,box-shadow .18s,opacity .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.b-ink{background:var(--ink);color:#fff}
+.b-ink:hover{box-shadow:0 14px 30px rgba(14,22,19,.22)}
+.b-line{background:#fff;border:1.5px solid var(--line);color:var(--text)}
+.ico{width:18px;height:18px;flex:none}
+
+/* topo */
+.top{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding-top:env(safe-area-inset-top)}
+.top::before{content:"";position:absolute;width:900px;height:900px;right:-300px;top:-420px;background:radial-gradient(circle,rgba(126,154,116,.35),transparent 60%)}
+.top::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(175,196,165,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(175,196,165,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--lime);display:grid;place-items:center;flex:none}
+.brand b{display:block;font-family:var(--disp);font-size:17px;letter-spacing:-0.02em;line-height:1.1}
+.brand small{display:block;font-size:11px;color:var(--sage);letter-spacing:.08em;text-transform:uppercase}
+.voltar{color:#D5DFD9;text-decoration:none;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+.voltar:hover{border-color:var(--lime);color:var(--lime)}
+.head{position:relative;z-index:2;padding:clamp(20px,4vw,44px) 0 clamp(90px,10vw,120px)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.kicker::before{content:"";width:26px;height:2px;background:currentColor;border-radius:2px}
+.head h1{margin:14px 0 12px;font-family:var(--disp);font-weight:800;font-size:clamp(36px,6vw,72px);line-height:.98;letter-spacing:-0.05em;max-width:16ch}
+.head h1 em.s{color:var(--lime)}
+.head p{margin:0;color:#C3D0C9;max-width:560px;font-size:clamp(16px,1.4vw,18px)}
+
+/* progresso */
+.prog{list-style:none;margin:28px 0 0;padding:0;display:flex;gap:0;max-width:640px}
+.prog li{flex:1;display:flex;flex-direction:column;gap:8px;font-size:12.5px;font-weight:700;color:#8FA197}
+.prog li i{height:4px;border-radius:4px;background:rgba(255,255,255,.12);margin-right:6px;position:relative;overflow:hidden}
+.prog li i::after{content:"";position:absolute;inset:0;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.prog li.on,.prog li.feito{color:#fff}
+@media (max-width:560px){.prog li{font-size:0}.prog li.on{font-size:12px;flex:2.2}}
+.prog li.on i::after,.prog li.feito i::after{transform:scaleX(1)}
+
+/* corpo */
+.body{position:relative;z-index:3;margin-top:clamp(-80px,-8vw,-64px);padding-bottom:80px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--paper);border-radius:32px;padding:clamp(20px,3.4vw,40px);box-shadow:0 40px 80px rgba(14,22,19,.12);min-width:0}
+.pane{display:none}
+.pane.on{display:block;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pane h2{margin:0 0 4px;font-family:var(--disp);font-size:clamp(24px,2.6vw,32px);letter-spacing:-0.035em;line-height:1.1}
+.pane .sub{margin:0 0 22px;color:var(--muted)}
+.lbl{display:block;margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* serviços */
+.servs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:28px}
+@media (max-width:560px){.servs{grid-template-columns:minmax(0,1fr)}}
+.serv{position:relative;display:flex;gap:14px;align-items:flex-start;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:16px;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s,background .2s}
+.serv:hover{border-color:var(--sage-d);transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,22,19,.06)}
+.serv .si{width:46px;height:46px;border-radius:14px;background:var(--sage-l);display:grid;place-items:center;flex:none;transition:background .2s}
+.serv .si svg{width:24px;height:24px}
+.serv b{display:block;font-size:16px;line-height:1.25}
+.serv small{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:3px}
+.serv .rad{position:absolute;right:14px;top:14px;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);transition:all .2s}
+.serv.on{border-color:var(--ink);background:var(--ink);color:#fff;box-shadow:0 18px 40px rgba(14,22,19,.2)}
+.serv.on small{color:#B9C7C0}
+.serv.on .si{background:var(--lime);color:var(--ink)}
+.serv.on .rad{border-color:var(--lime);background:var(--lime);box-shadow:inset 0 0 0 4px var(--ink)}
+.serv.dest::after{content:"Mais procurado";position:absolute;right:42px;top:14px;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--rose-l);color:var(--bordo);padding:3px 8px;border-radius:999px}
+.locais{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:460px){.locais{grid-template-columns:minmax(0,1fr)}}
+.local{display:flex;gap:14px;align-items:center;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:16px 18px;cursor:pointer;transition:all .2s}
+.local svg{width:30px;height:30px;color:var(--sage-d);flex:none}
+.local b{display:block;font-size:16px}
+.local small{display:block;font-size:13px;color:var(--muted)}
+.local:hover{border-color:var(--sage-d)}
+.local.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.local.on svg{color:var(--lime)}
+.local.on small{color:#B9C7C0}
+
+/* calendário */
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-h b{font-family:var(--disp);font-size:22px;letter-spacing:-0.03em}
+.cal-h b::first-letter{text-transform:uppercase}
+.cal-nav{display:flex;gap:6px}
+.cal-nav button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-size:18px;line-height:1}
+.cal-nav button:disabled{opacity:.3;cursor:not-allowed}
+.cal-nav button:not(:disabled):hover{border-color:var(--ink)}
+.cal-w,.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal-w span{text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-bottom:6px}
+.cd{aspect-ratio:1/.92;border-radius:16px;border:1.5px solid transparent;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:700;font-size:16px;cursor:default;color:#B6B0A4;position:relative;transition:all .15s}
+.cd.ok{background:#fff;border-color:var(--line);color:var(--text);cursor:pointer}
+.cd.ok:hover{border-color:var(--sage-d);transform:translateY(-1px)}
+.cd.ok i{font-style:normal;font-size:10px;font-weight:800;color:var(--sage-d)}
+.cd.hoje{box-shadow:inset 0 0 0 1.5px var(--sage-d)}
+.cd.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.cd.on i{color:var(--lime)}
+.cd.vazio{visibility:hidden}
+.cd .dot{position:absolute;bottom:7px;width:5px;height:5px;border-radius:50%;background:var(--lime)}
+@media (max-width:460px){.cd{border-radius:12px;font-size:14px}.cd.ok i{display:none}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 0;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:5px;border:1.5px solid var(--line);background:#fff}
+.legend i.x{background:transparent;border-color:transparent;box-shadow:inset 0 0 0 1.5px #E2DCCF}
+.horas{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);min-height:110px}
+.horas h3{margin:0 0 12px;font-family:var(--disp);font-size:19px;letter-spacing:-0.02em}
+.horas h3::first-letter{text-transform:uppercase}
+.turno{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;align-items:start;margin-bottom:10px}
+.turno>span{font-size:12.5px;font-weight:800;color:var(--muted);padding-top:11px;display:flex;align-items:center;gap:6px}
+.turno>div{display:flex;flex-wrap:wrap;gap:8px}
+.h{min-width:78px;min-height:44px;border-radius:14px;border:1.5px solid var(--line);background:#fff;font-weight:800;font-size:15px;cursor:pointer;transition:all .15s}
+.h:hover{border-color:var(--sage-d);background:var(--sage-l)}
+.h.on{background:var(--lime);border-color:var(--lime);color:var(--ink);box-shadow:0 10px 24px rgba(243,195,193,.55);transform:translateY(-1px)}
+.msg{color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.msg a{color:var(--bordo);font-weight:700}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid var(--line);border-top-color:var(--ink);animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* formulário */
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fld label,.fld legend{font-size:13.5px;font-weight:700;padding:0}
+.fld small{font-weight:500;color:var(--muted)}
+.fld input,.fld textarea{padding:14px 16px;border-radius:16px;border:1.5px solid var(--line);background:#fff;font-size:16px;min-height:52px}
+.fld textarea{min-height:90px;resize:vertical}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--sage-d);box-shadow:0 0 0 4px rgba(126,154,116,.15)}
+fieldset.fld{border:0;margin:0 0 14px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:14px;font-weight:700;cursor:pointer}
+.opts button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.erro{margin:4px 0 0;background:#FBE9EA;color:#8A1C2B;border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600}
+.aceite{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin:6px 0 4px}
+.aceite input{width:18px;height:18px;margin-top:2px;accent-color:var(--ink);flex:none}
+
+.foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.back{background:none;border:0;font-weight:700;font-size:14px;color:var(--muted);cursor:pointer;padding:10px 4px;white-space:nowrap}
+.back:hover{color:var(--text)}
+
+/* sucesso */
+.ok{text-align:center}
+.check{width:96px;height:96px;margin:6px auto 14px;display:block}
+.check circle{fill:var(--lime);opacity:.45;transform-origin:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+.check path{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:tick .5s .25s ease forwards}
+@keyframes pop{from{transform:scale(.4)}to{transform:scale(1)}}
+@keyframes tick{to{stroke-dashoffset:0}}
+.ok h2{font-size:clamp(28px,3.4vw,40px)}
+.ok>p{margin:6px auto 22px;color:var(--muted);max-width:460px}
+.ok>p b{color:var(--text)}
+.ticket{position:relative;text-align:left;background:#fff;border-radius:24px;border:1.5px solid var(--line);overflow:hidden;margin:0 auto 22px;max-width:520px}
+.ticket-h{background:var(--ink);color:#fff;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ticket-h b{font-family:var(--disp);font-size:18px}
+.ticket-h span{font-size:12px;font-weight:800;letter-spacing:.06em;background:var(--lime);color:var(--ink);padding:4px 10px;border-radius:999px}
+.ticket-b{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px;padding:18px 20px}
+.ticket-b small{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ticket-b b{display:block;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+.ticket-b .w{grid-column:1/-1}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.wa{background:#1F8F5A;color:#fff}
+.passos{list-style:none;margin:26px auto 0;padding:0;max-width:520px;text-align:left;display:grid;gap:10px}
+.passos li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--muted)}
+.passos b{width:26px;height:26px;border-radius:50%;background:var(--sage-l);color:var(--ink);display:grid;place-items:center;font-size:13px;flex:none}
+
+/* lateral */
+.side{position:sticky;top:20px;display:grid;gap:16px}
+@media (max-width:980px){.side{position:static}}
+.perfil{background:var(--ink);color:#fff;border-radius:28px;padding:20px;display:flex;gap:14px;align-items:center;box-shadow:0 30px 60px rgba(14,22,19,.18)}
+.perfil img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:3px solid rgba(243,195,193,.6)}
+.perfil b{display:block;font-family:var(--disp);font-size:18px;letter-spacing:-0.02em}
+.perfil small{display:block;color:var(--sage);font-size:13px;line-height:1.35}
+.resumo{background:#fff;border:1px solid var(--line);border-radius:28px;padding:20px}
+.resumo h3{margin:0 0 14px;font-family:var(--disp);font-size:18px;letter-spacing:-0.02em}
+.rl{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center;padding:10px 0;border-top:1px dashed var(--line)}
+.rl:first-of-type{border-top:0}
+.rl svg{width:20px;height:20px;color:var(--sage-d)}
+.rl small{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rl b{display:block;font-size:14.5px;line-height:1.3;transition:color .3s}
+.rl b.vz{color:#B6B0A4;font-weight:600}
+.rl b.flash{animation:fl .8s ease}
+@keyframes fl{0%{color:var(--bordo)}100%{color:inherit}}
+.info{background:var(--sage-l);border-radius:28px;padding:20px}
+.info h3{margin:0 0 10px;font-family:var(--disp);font-size:18px;letter-spacing:-0.02em}
+.info ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.info li{position:relative;padding-left:18px;font-size:14px;line-height:1.45}
+.info li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--bordo)}
+.faq{background:#fff;border:1px solid var(--line);border-radius:28px;padding:8px 20px}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq details:first-child{border-top:0}
+.faq summary{cursor:pointer;font-weight:700;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-size:20px;line-height:1;color:var(--sage-d);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin:8px 0 0;color:var(--muted);font-size:14px}
+.side-wa{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:22px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:700;font-size:14px}
+.side-wa span{width:36px;height:36px;border-radius:12px;background:#1F8F5A;color:#fff;display:grid;place-items:center;flex:none}
+.side-wa:hover{border-color:#1F8F5A}
+.demo{display:inline-flex;margin-top:14px;font-size:12px;font-weight:700;color:var(--bordo);background:var(--rose-l);border-radius:999px;padding:6px 12px}
+.foot-site{text-align:center;color:var(--muted);font-size:13px;padding:0 20px 40px}
+.foot-site a{color:inherit}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="nav">
+      <a href="./" class="brand" aria-label="Voltar ao site da Thalia Serra">
+        <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1613" stroke-width="2.4" stroke-linecap="round"><path d="M4 17a9 9 0 0 1 16-6"/><circle cx="12" cy="17" r="2.2" fill="#0E1613"/></svg></span>
+        <span><b>Dra. Thalia Serra</b><small>Fisioterapia</small></span>
+      </a>
+      <a class="voltar" href="./"><span aria-hidden="true">←</span> Voltar ao site</a>
+    </div>
+    <div class="head">
+      <span class="kicker">Agendamento online</span>
+      <h1>Reserve seu horário <em class="s">com a Thalia.</em></h1>
+      <p>Escolha o atendimento, o dia e o horário que cabem na sua rotina. A Thalia recebe na hora e confirma com você pelo WhatsApp.</p>
+      <ol class="prog" id="prog">
+        <li class="on"><i></i>1 · Atendimento</li>
+        <li><i></i>2 · Data e hora</li>
+        <li><i></i>3 · Seus dados</li>
+        <li><i></i>Confirmação</li>
+      </ol>
+      <span class="demo" id="demo" hidden>Prévia de demonstração — horários fictícios</span>
+    </div>
+  </div>
+</header>
+
+<div class="body">
+  <div class="wrap grid">
+    <main class="card" id="card">
+
+      <!-- 1. ATENDIMENTO -->
+      <section class="pane on" data-p="1" aria-labelledby="t1">
+        <h2 id="t1">Como posso te ajudar?</h2>
+        <p class="sub">Na dúvida, escolha <b>Avaliação</b> — é a primeira consulta, em que a Thalia entende sua dor e monta o plano.</p>
+        <span class="lbl">Atendimento</span>
+        <div class="servs" id="servs"></div>
+        <span class="lbl">Onde você prefere?</span>
+        <div class="locais" id="locais">
+          <button type="button" class="local" data-v="consultorio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M12 8v3M10.5 9.5h3"/></svg><span><b>No consultório</b><small>Itabirito – MG</small></span></button>
+          <button type="button" class="local" data-v="domicilio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 12v5M9.5 14.5h5"/></svg><span><b>Na minha casa</b><small>A Thalia vai até você</small></span></button>
+        </div>
+        <div class="foot"><a class="back" href="./">← Site</a><button type="button" class="btn b-ink" data-go="2">Escolher data <span aria-hidden="true">→</span></button></div>
+      </section>
+
+      <!-- 2. DATA E HORA -->
+      <section class="pane" data-p="2" aria-labelledby="t2">
+        <h2 id="t2">Escolha o dia e o horário</h2>
+        <p class="sub">Os horários abaixo estão livres agora. Duração aproximada de <b id="durTxt">60</b> minutos.</p>
+        <div class="cal-h"><b id="mesTit">—</b><div class="cal-nav"><button type="button" id="mPrev" aria-label="Mês anterior">‹</button><button type="button" id="mNext" aria-label="Próximo mês">›</button></div></div>
+        <div class="cal-w"><span>dom</span><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span></div>
+        <div class="cal" id="cal" role="grid" aria-label="Calendário"></div>
+        <div class="legend"><span><i></i>Com horário livre</span><span><i class="x"></i>Sem horário</span></div>
+        <div class="horas" id="horas"><p class="msg"><span class="spin"></span>Buscando horários livres…</p></div>
+        <div class="foot"><button type="button" class="back" data-go="1">← Voltar</button><button type="button" class="btn b-ink" data-go="3" id="to3" disabled>Continuar <span aria-hidden="true">→</span></button></div>
+      </section>
+
+      <!-- 3. DADOS -->
+      <form class="pane" data-p="3" id="form" novalidate aria-labelledby="t3">
+        <h2 id="t3">Seus dados</h2>
+        <p class="sub">Só o necessário para a Thalia te receber e confirmar o horário.</p>
+        <div class="fgrid">
+          <div class="fld"><label for="nome">Nome completo</label><input id="nome" autocomplete="name" placeholder="Seu nome"></div>
+          <div class="fld"><label for="tel">WhatsApp</label><input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(31) 9 0000-0000"></div>
+        </div>
+        <div class="fld" id="endW" hidden><label for="end">Endereço para o atendimento</label><input id="end" autocomplete="street-address" placeholder="Rua, número, bairro"></div>
+        <fieldset class="fld"><legend>Onde está a dor? <small>(opcional)</small></legend><div class="opts" id="regs"></div></fieldset>
+        <div class="fld"><label for="obs">Quer contar algo antes? <small>(opcional)</small></label><textarea id="obs" placeholder="Ex.: dor há 2 meses, fiz cirurgia de LCA, sou corredora…"></textarea></div>
+        <label class="aceite"><input type="checkbox" id="aceite" checked> Autorizo a Thalia a me chamar no WhatsApp para confirmar o horário.</label>
+        <input class="hp" id="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="erro" id="erro" role="alert" hidden></p>
+        <div class="foot"><button type="button" class="back" data-go="2">← Voltar</button><button type="submit" class="btn b-ink" id="enviar">Confirmar agendamento</button></div>
+      </form>
+
+      <!-- 4. CONFIRMAÇÃO -->
+      <section class="pane ok" data-p="4" aria-live="polite">
+        <svg class="check" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36"/><path d="M24 41l11 11 21-23"/></svg>
+        <h2>Horário reservado!</h2>
+        <p id="okTxt"></p>
+        <div class="ticket">
+          <div class="ticket-h"><b>Dra. Thalia Serra</b><span id="okCod">—</span></div>
+          <div class="ticket-b" id="okTicket"></div>
+        </div>
+        <div class="acts">
+          <a class="btn wa" id="okWa" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Avisar a Thalia no WhatsApp</a>
+          <a class="btn b-line" id="okCal" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Salvar na minha agenda</a>
+        </div>
+        <ol class="passos">
+          <li><b>1</b>A Thalia recebe seu pedido agora e confirma pelo WhatsApp.</li>
+          <li><b>2</b>Use roupa confortável e, se tiver, leve exames e laudos.</li>
+          <li><b>3</b>Precisa remarcar? É só avisar pelo WhatsApp.</li>
+        </ol>
+        <div class="foot" style="justify-content:center"><button type="button" class="back" id="deNovo">Fazer outro agendamento</button><a class="back" href="./">Voltar ao site</a></div>
+      </section>
+    </main>
+
+    <aside class="side">
+      <div class="perfil">
+        <img src="img/thalia-retrato.jpg" alt="Dra. Thalia Serra" width="64" height="64">
+        <span><b>Dra. Thalia Serra</b><small>Fisioterapeuta · Ortopedia e Esportiva · Itabirito/MG</small></span>
+      </div>
+      <div class="resumo">
+        <h3>Seu agendamento</h3>
+        <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3H9z"/><rect x="5" y="5" width="14" height="16" rx="2"/></svg><span><small>Atendimento</small><b id="rServ" class="vz">—</b></span></div>
+        <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Local</small><b id="rLocal" class="vz">—</b></span></div>
+        <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><small>Data</small><b id="rDia" class="vz">Escolha no passo 2</b></span></div>
+        <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><small>Horário</small><b id="rHora" class="vz">—</b></span></div>
+      </div>
+      <div class="info">
+        <h3>Bom saber</h3>
+        <ul>
+          <li>Sessões de cerca de <span id="durTxt2">60</span> minutos, com atenção individual.</li>
+          <li>Atendimento no consultório ou em domicílio, em Itabirito e região.</li>
+          <li>A confirmação é feita pela própria Thalia, no WhatsApp.</li>
+        </ul>
+      </div>
+      <div class="faq">
+        <details><summary>Preciso levar alguma coisa?</summary><p>Roupa confortável e, se tiver, exames, laudos ou pedido médico relacionados à sua queixa.</p></details>
+        <details><summary>Posso remarcar ou cancelar?</summary><p>Pode, sim. É só avisar a Thalia pelo WhatsApp, de preferência com antecedência.</p></details>
+        <details><summary>Como funciona em domicílio?</summary><p>A Thalia vai até você com o equipamento necessário. Informe o endereço no passo 3.</p></details>
+      </div>
+      <a class="side-wa" id="sideWa" target="_blank" rel="noopener"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>Prefere conversar antes? Chame no WhatsApp</a>
+    </aside>
+  </div>
+</div>
+<p class="foot-site">© 2026 Dra. Thalia Serra · Fisioterapia · <a href="./">thaliaserrafisio.com.br</a> · Site criado por <a href="https://instagram.com/lo_braganca" target="_blank" rel="noopener">Lorena Bragança</a></p>
+
+<script src="contato.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WHATS = String(window.THALIA_WHATS || '').replace(/\D/g, '');
+  function link(m){ return WHATS ? 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(m) : 'https://ig.me/m/thaliaserra_fisio'; }
+  var PREVIA = location.protocol === 'file:' || /claude|anthropic|usercontent/i.test(location.hostname) || location.origin === 'null';
+
+  var SERV = [
+    {id:'avaliacao', nome:'Avaliação', sub:'Primeira consulta: entender a dor e montar o plano', ico:'<path d="M9 3h6v3H9z"/><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 12h6M9 16h4"/>'},
+    {id:'ortopedica', nome:'Fisioterapia ortopédica', sub:'Dores, tendinites, hérnias e lesões', ico:'<path d="M7.5 4.5a2.2 2.2 0 1 1 3.1 3.1l5.8 5.8a2.2 2.2 0 1 1 3.1 3.1 2.2 2.2 0 1 1-3.1 3.1 2.2 2.2 0 1 1-3.1-3.1L7.6 10.7a2.2 2.2 0 1 1-3.1-3.1 2.2 2.2 0 1 1 3-3.1z"/>'},
+    {id:'esportiva', nome:'Fisioterapia esportiva', sub:'Lesões e retorno seguro ao esporte', ico:'<circle cx="15" cy="4" r="2"/><path d="m8 21 3-6 3 2v5"/><path d="m6 12 3-4 5 1 3 4 3-1"/>'},
+    {id:'pilates', nome:'Pilates', sub:'Força, postura e mobilidade', ico:'<circle cx="12" cy="4.5" r="2"/><path d="M4 21h16"/><path d="M12 7v6l-5 4"/><path d="m12 13 5 4"/><path d="M7 10h10"/>'},
+    {id:'laser', nome:'Laserterapia', sub:'Alívio de dor e inflamação', ico:'<path d="M4 20 14 10"/><path d="M14 10l2-2"/><circle cx="18" cy="6" r="2.5"/><path d="M18 1.5V2M22.5 6H22"/>'},
+    {id:'posop', nome:'Pós-operatório', sub:'Reabilitação depois da cirurgia', ico:'<path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M8.5 12h2l1-2 1.5 4 1-2h1.5"/>'},
+    {id:'recovery', nome:'Recovery', sub:'Liberação e recuperação muscular', ico:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'}
+  ];
+  var REG = [['cervical','Pescoço'],['ombro','Ombro'],['cotovelo','Cotovelo'],['punho','Punho/mão'],['lombar','Lombar'],['quadril','Quadril'],['joelho','Joelho'],['tornozelo','Tornozelo/pé']];
+  var REGN = {cervical:'Pescoço e cervical', ombro:'Ombro', cotovelo:'Cotovelo', punho:'Punho e mão', lombar:'Coluna lombar', quadril:'Quadril', joelho:'Joelho', tornozelo:'Tornozelo e pé'};
+  var MESL = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var DOWL = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+
+  // ---- estado inicial (pode vir do link do site: ?local=domicilio&regiao=joelho&servico=laser)
+  var q = new URLSearchParams(location.search);
+  var st = {
+    servico: SERV.some(function(s){ return s.id === q.get('servico'); }) ? q.get('servico') : 'avaliacao',
+    local: q.get('local') === 'domicilio' ? 'domicilio' : 'consultorio',
+    regiao: REGN[q.get('regiao')] ? q.get('regiao') : '',
+    dia: null, hora: null, passo: 1
+  };
+  var dias = {}, dur = 60, demo = false, carregado = false, mesVis = null;
+
+  // ---- render passo 1
+  $('servs').innerHTML = SERV.map(function(s, i){
+    return '<button type="button" class="serv' + (i === 0 ? ' dest' : '') + '" data-v="' + s.id + '"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + s.ico + '</svg></span><span><b>' + s.nome + '</b><small>' + s.sub + '</small></span><span class="rad"></span></button>';
+  }).join('');
+  $('regs').innerHTML = REG.map(function(r){ return '<button type="button" data-v="' + r[0] + '">' + r[1] + '</button>'; }).join('');
+  function servNome(){ return SERV.filter(function(s){ return s.id === st.servico; })[0].nome; }
+  function setTxt(id, t, vazio){ var el = $(id); if (el.textContent !== t){ el.textContent = t; el.classList.toggle('vz', !!vazio); el.classList.remove('flash'); void el.offsetWidth; if (!vazio) el.classList.add('flash'); } }
+  function marca(){
+    [].forEach.call(document.querySelectorAll('.serv'), function(b){ b.classList.toggle('on', b.dataset.v === st.servico); b.setAttribute('aria-pressed', b.dataset.v === st.servico); });
+    [].forEach.call(document.querySelectorAll('.local'), function(b){ b.classList.toggle('on', b.dataset.v === st.local); b.setAttribute('aria-pressed', b.dataset.v === st.local); });
+    [].forEach.call(document.querySelectorAll('#regs button'), function(b){ b.classList.toggle('on', b.dataset.v === st.regiao); });
+    $('endW').hidden = st.local !== 'domicilio';
+    setTxt('rServ', servNome());
+    setTxt('rLocal', st.local === 'domicilio' ? 'Na sua casa' : 'Consultório · Itabirito');
+    setTxt('rDia', st.dia ? longo(st.dia) : 'Escolha no passo 2', !st.dia);
+    setTxt('rHora', st.hora ? st.hora : '—', !st.hora);
+  }
+  $('servs').addEventListener('click', function(e){ var b = e.target.closest('.serv'); if (b){ st.servico = b.dataset.v; marca(); } });
+  $('locais').addEventListener('click', function(e){ var b = e.target.closest('.local'); if (b){ st.local = b.dataset.v; marca(); } });
+  $('regs').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ st.regiao = st.regiao === b.dataset.v ? '' : b.dataset.v; marca(); } });
+
+  // ---- navegação
+  function go(n){
+    if (n === 3 && (!st.dia || !st.hora)) return;
+    st.passo = n;
+    [].forEach.call(document.querySelectorAll('.pane'), function(p){ p.classList.toggle('on', +p.dataset.p === n); });
+    var li = $('prog').children;
+    for (var i = 0; i < li.length; i++){ li[i].classList.toggle('on', i + 1 === n); li[i].classList.toggle('feito', i + 1 < n); }
+    if (n === 2 && !carregado) carregar();
+    var top = $('card').getBoundingClientRect().top + window.scrollY - 16;
+    if (window.scrollY > top || $('card').getBoundingClientRect().top > window.innerHeight * .6) window.scrollTo({top: top, behavior: reduce ? 'auto' : 'smooth'});
+    if (n === 3) setTimeout(function(){ if (!$('nome').value) $('nome').focus({preventScroll:true}); }, 350);
+  }
+  document.addEventListener('click', function(e){ var b = e.target.closest('[data-go]'); if (b && !b.disabled) go(+b.dataset.go); });
+
+  // ---- datas
+  function hojeBR(){ return new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10); }
+  function soma(d, n){ return new Date(Date.parse(d + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10); }
+  function partes(d){ var x = new Date(d + 'T12:00:00Z'); return {a: x.getUTCFullYear(), m: x.getUTCMonth(), d: x.getUTCDate(), w: x.getUTCDay()}; }
+  function longo(d){ var p = partes(d); return DOWL[p.w] + ', ' + p.d + ' de ' + MESL[p.m]; }
+
+  function demoDias(){
+    var grade = {1:[[7,12],[14,19]],2:[[7,12],[14,19]],3:[[7,12],[14,19]],4:[[7,12],[14,19]],5:[[7,12],[14,18]],6:[[8,12]]};
+    var out = {}, h0 = hojeBR(), hh = new Date(Date.now() - 3 * 3600e3).getUTCHours();
+    for (var i = 0; i < 31; i++){
+      var d = soma(h0, i), l = [];
+      (grade[partes(d).w] || []).forEach(function(f){ for (var h = f[0]; h < f[1]; h++){
+        if (i === 0 && h <= hh + 3) continue;
+        if ((+d.replace(/-/g, '') * 7 + h * 13) % 10 < 3) continue;
+        l.push((h < 10 ? '0' : '') + h + ':00');
+      } });
+      out[d] = l;
+    }
+    return out;
+  }
+  function falha(){
+    $('horas').innerHTML = '<p class="msg">A agenda online está indisponível agora. <a target="_blank" rel="noopener" href="' + link('Olá, Thalia! Tentei agendar pelo site, mas a agenda estava indisponível. Podemos marcar por aqui?') + '">Agende pelo WhatsApp</a>.</p>';
+  }
+  function carregar(){
+    $('horas').innerHTML = '<p class="msg"><span class="spin"></span>Buscando horários livres…</p>';
+    fetch('/api/horarios?dias=42', {headers: {'Accept': 'application/json'}}).then(function(r){
+      var ct = r.headers.get('content-type') || '';
+      if (r.status === 404 || ct.indexOf('json') < 0) throw 'sem-api';
+      return r.json().then(function(j){ if (!r.ok) throw j; return j; });
+    }).then(function(j){
+      dias = j.dias || {}; dur = j.dur || 60; pronto();
+    }).catch(function(err){
+      if (PREVIA && (err === 'sem-api' || err instanceof TypeError)){ demo = true; $('demo').hidden = false; dias = demoDias(); pronto(); return; }
+      falha();
+    });
+  }
+  function pronto(){
+    carregado = true;
+    $('durTxt').textContent = dur; $('durTxt2').textContent = dur;
+    var primeiro = Object.keys(dias).sort().filter(function(d){ return dias[d].length; })[0];
+    if (!st.dia || !(dias[st.dia] || []).length){ st.dia = primeiro || null; st.hora = null; }
+    var p = partes(st.dia || hojeBR()); mesVis = p.a * 12 + p.m;
+    calendario(); horas(); marca();
+  }
+
+  // ---- calendário mensal
+  function calendario(){
+    var h = hojeBR(), ks = Object.keys(dias).sort(), ultimo = ks[ks.length - 1] || h;
+    var a = Math.floor(mesVis / 12), m = mesVis % 12;
+    $('mesTit').textContent = MESL[m] + ' ' + a;
+    var p0 = partes(h), pu = partes(ultimo);
+    $('mPrev').disabled = mesVis <= p0.a * 12 + p0.m;
+    $('mNext').disabled = mesVis >= pu.a * 12 + pu.m;
+    var primeiro = a + '-' + String(m + 1).padStart(2, '0') + '-01', w0 = partes(primeiro).w, html = '';
+    for (var i = 0; i < w0; i++) html += '<span class="cd vazio"></span>';
+    for (var d = primeiro; partes(d).m === m; d = soma(d, 1)){
+      var n = (dias[d] || []).length, cls = 'cd' + (n ? ' ok' : '') + (d === h ? ' hoje' : '') + (d === st.dia ? ' on' : '');
+      html += n ? '<button type="button" class="' + cls + '" data-d="' + d + '" aria-label="' + longo(d) + ', ' + n + ' horários livres">' + partes(d).d + '<i>' + n + ' livre' + (n > 1 ? 's' : '') + '</i></button>'
+                : '<span class="' + cls + '" aria-hidden="true">' + partes(d).d + '</span>';
+    }
+    $('cal').innerHTML = html;
+  }
+  $('mPrev').addEventListener('click', function(){ mesVis--; calendario(); });
+  $('mNext').addEventListener('click', function(){ mesVis++; calendario(); });
+  $('cal').addEventListener('click', function(e){
+    var b = e.target.closest('.cd.ok'); if (!b) return;
+    st.dia = b.dataset.d; st.hora = null; calendario(); horas(); marca();
+    if (window.innerWidth < 980) $('horas').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'nearest'});
+  });
+  function horas(){
+    var el = $('horas');
+    if (!st.dia){ el.innerHTML = '<p class="msg">Sem horários livres nos próximos dias. <a target="_blank" rel="noopener" href="' + link('Olá, Thalia! Não achei horário livre no site. Tem alguma vaga?') + '">Fale com a Thalia</a>.</p>'; $('to3').disabled = true; return; }
+    var g = [['Manhã', []], ['Tarde', []], ['Noite', []]];
+    dias[st.dia].forEach(function(h){ var x = +h.slice(0, 2); g[x < 12 ? 0 : x < 18 ? 1 : 2][1].push(h); });
+    el.innerHTML = '<h3>' + longo(st.dia) + '</h3>' + g.filter(function(t){ return t[1].length; }).map(function(t){
+      return '<div class="turno"><span>' + t[0] + '</span><div>' + t[1].map(function(h){ return '<button type="button" class="h' + (h === st.hora ? ' on' : '') + '" data-h="' + h + '">' + h + '</button>'; }).join('') + '</div></div>';
+    }).join('');
+    $('to3').disabled = !st.hora;
+  }
+  $('horas').addEventListener('click', function(e){
+    var b = e.target.closest('.h'); if (!b) return;
+    st.hora = b.dataset.h;
+    [].forEach.call($('horas').querySelectorAll('.h'), function(c){ c.classList.toggle('on', c === b); });
+    $('to3').disabled = false; marca();
+  });
+
+  // ---- passo 3
+  $('tel').addEventListener('input', function(){
+    var d = this.value.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '').slice(0, 11), o = d;
+    if (d.length > 2) o = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length > 7) o = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+    this.value = o;
+  });
+  function erro(t){ $('erro').textContent = t; $('erro').hidden = !t; }
+  $('form').addEventListener('submit', function(e){
+    e.preventDefault(); erro('');
+    var nome = $('nome').value.trim(), tel = $('tel').value.replace(/\D/g, ''), end = $('end').value.trim();
+    if (nome.length < 2){ erro('Informe seu nome.'); $('nome').focus(); return; }
+    if (tel.length < 10){ erro('Informe seu WhatsApp com DDD.'); $('tel').focus(); return; }
+    if (st.local === 'domicilio' && end.length < 5){ erro('Informe o endereço para o atendimento em casa.'); $('end').focus(); return; }
+    if (!$('aceite').checked){ erro('Marque a autorização para a Thalia confirmar pelo WhatsApp.'); return; }
+    var dados = {dia: st.dia, hora: st.hora, servico: st.servico, local: st.local, nome: nome, tel: '55' + tel, endereco: end, regiao: REGN[st.regiao] || '', obs: $('obs').value.trim(), site: $('site').value};
+    var b = $('enviar'); b.disabled = true; b.textContent = 'Reservando…';
+    var fim = function(){ b.disabled = false; b.textContent = 'Confirmar agendamento'; };
+    if (demo){ setTimeout(function(){ fim(); sucesso(dados, 'DEMO' + Math.random().toString(36).slice(2, 6).toUpperCase()); }, 800); return; }
+    fetch('/api/agendar', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(dados)})
+      .then(function(r){ return r.json().then(function(j){ return {ok: r.ok, s: r.status, j: j}; }); })
+      .then(function(x){
+        fim();
+        if (x.ok) return sucesso(dados, x.j.id);
+        erro(x.j.erro || 'Não foi possível agendar.');
+        if (x.s === 409){ carregado = false; st.hora = null; marca(); setTimeout(function(){ go(2); }, 1600); }
+      })
+      .catch(function(){ fim(); erro('Sem conexão. Tente de novo ou chame no WhatsApp.'); });
+  });
+
+  // ---- confirmação
+  function sucesso(d, id){
+    var quando = longo(d.dia) + ' às ' + d.hora, loc = d.local === 'domicilio' ? 'Na sua casa' + (d.endereco ? ' — ' + d.endereco : '') : 'Consultório · Itabirito/MG';
+    var esc = function(s){ return String(s).replace(/[<>&]/g, ''); };
+    $('okTxt').innerHTML = 'Obrigada, <b>' + esc(d.nome.split(' ')[0]) + '</b>! Seu pedido chegou para a Thalia, que vai confirmar com você pelo WhatsApp.';
+    $('okCod').textContent = id;
+    $('okTicket').innerHTML = '<div><small>Atendimento</small><b>' + servNome() + '</b></div><div><small>Duração</small><b>~' + dur + ' min</b></div><div class="w"><small>Quando</small><b>' + quando + '</b></div><div class="w"><small>Onde</small><b>' + esc(loc) + '</b></div>';
+    $('okWa').href = link('Olá, Thalia! Acabei de agendar pelo site:\n• ' + servNome() + '\n• ' + quando + '\n• ' + loc + '\nNome: ' + d.nome + '\nCódigo: ' + id);
+    var ini = d.dia.replace(/-/g, '') + 'T' + d.hora.replace(':', '') + '00', f = new Date(Date.parse(d.dia + 'T' + d.hora + ':00-03:00') + dur * 60e3 - 3 * 3600e3).toISOString();
+    var fim = f.slice(0, 10).replace(/-/g, '') + 'T' + f.slice(11, 16).replace(':', '') + '00';
+    $('okCal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(servNome() + ' — Dra. Thalia Serra') + '&dates=' + ini + '/' + fim + '&ctz=America/Sao_Paulo&details=' + encodeURIComponent('Fisioterapia com a Dra. Thalia Serra. Código: ' + id) + '&location=' + encodeURIComponent(loc);
+    if (demo && dias[d.dia]) dias[d.dia] = dias[d.dia].filter(function(h){ return h !== d.hora; }); else carregado = false;
+    go(4);
+  }
+  $('deNovo').addEventListener('click', function(){ st.hora = null; $('form').reset(); $('aceite').checked = true; st.regiao = ''; marca(); go(1); });
+
+  $('sideWa').href = link('Olá, Thalia! Estou no site e queria tirar uma dúvida antes de agendar.');
+  marca();
+})();
+</script>
+</body>
+</html>
