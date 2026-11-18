@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0E1613">
 <title>Área da Thalia · Agenda</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230E1613'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23F3C3C1' stroke-width='2'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='28' fill='%23F3C3C1'%3ETS%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230E1613'/%3E%3Cg fill='none' stroke='%23F3C3C1' stroke-linecap='round'%3E%3Cpath d='M13 36a19 19 0 0 1 38 0' stroke-width='4.5'/%3E%3Cpath d='M32 36v17' stroke-width='4.5'/%3E%3C/g%3E%3Ccircle cx='32' cy='36' r='5' fill='%23F3C3C1'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -186,6 +186,24 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
 @media (max-width:760px){#bNovo{display:none}}
 .fabn{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:30;box-shadow:0 16px 40px rgba(14,22,19,.3)}
 @media (min-width:761px){.fabn{display:none}}
+.brand b i,.top-brand b i{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--lime, #F3C3C1)}
+.cnt{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--rose);color:var(--ink);font-size:11px;margin-left:4px}
+.dep{border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:10px;background:#fff}
+.dep-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
+.dep-h b{font-size:15px}.dep-h small{color:var(--muted);font-size:12.5px}
+.dep q{display:block;font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.4;quotes:none;margin:4px 0 10px}
+.dep-a{display:flex;gap:6px;flex-wrap:wrap}.dep-a .btn{min-height:38px;padding:0 14px;font-size:13px}
+.stt{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 8px}
+.stt.pendente{background:#FCF1DC;color:#8A5A12}.stt.aprovado{background:#E2F2E8;color:#1F6B40}.stt.oculto{background:#EEE;color:#666}
+.vid{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:10px 12px;margin-bottom:10px;background:#fff}
+.vid-th{width:72px;aspect-ratio:9/16;border-radius:12px;background:var(--ink);overflow:hidden;display:grid;place-items:center;color:var(--rose);font-size:11px;font-weight:700;text-align:center}
+.vid-th video{width:100%;height:100%;object-fit:cover}
+.vid-f{display:grid;gap:6px;min-width:0}
+.vid-f input,.vid-f select{padding:9px 12px;border-radius:12px;border:1.5px solid var(--line);font-size:14px;min-width:0;width:100%}
+.vid-o{display:flex;flex-direction:column;gap:4px}
+.vid-o button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
+.vid-add{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.vid-prog{margin:10px 0 0;font-size:14px;font-weight:700;color:var(--bordo)}
 </style>
 </head>
 <body>
@@ -193,7 +211,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
 <!-- LOGIN -->
 <section class="login" id="vLogin">
   <form class="l-card" id="fLogin">
-    <span class="mark"><svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width=".6" opacity=".45"/><text x="22" y="28.6" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="19.5" fill="currentColor">TS</text></svg></span>
+    <span class="mark"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true" fill="none" stroke-linecap="round"><path d="M7 25a15 15 0 0 1 30 0" stroke="currentColor" stroke-width="3.2"/><path d="M22 25V40" stroke="currentColor" stroke-width="3.2"/><path d="M22 25 32.6 14.4" stroke="currentColor" stroke-width="1.6" opacity=".55"/><circle cx="22" cy="25" r="3.6" fill="currentColor"/></svg></span>
     <h1>Área da <em class="s">Thalia</em></h1>
     <p>Entre para ver e organizar seus agendamentos.</p>
     <p class="msg-err" id="lErr" hidden></p>
@@ -210,7 +228,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
   <header class="top">
     <div class="top-in">
       <div class="top-brand">
-        <span class="mark"><svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width=".6" opacity=".45"/><text x="22" y="28.6" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="19.5" fill="currentColor">TS</text></svg></span>
+        <span class="mark"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true" fill="none" stroke-linecap="round"><path d="M7 25a15 15 0 0 1 30 0" stroke="currentColor" stroke-width="3.2"/><path d="M22 25V40" stroke="currentColor" stroke-width="3.2"/><path d="M22 25 32.6 14.4" stroke="currentColor" stroke-width="1.6" opacity=".55"/><circle cx="22" cy="25" r="3.6" fill="currentColor"/></svg></span>
         <span><b>Agenda · Dra. Thalia Serra</b><small class="live"><i></i><span id="sync">Atualizada agora</span></small></span>
       </div>
       <button class="btn b-rose" id="bNovo" style="min-height:40px"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span class="hide-m">Novo agendamento</span></button>
@@ -224,7 +242,9 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
       <div><h1 id="hi">Bom dia, <em class="s">Thalia.</em></h1><p id="hiSub"></p></div>
       <div class="tabs" role="tablist">
         <button class="on" data-tab="agenda" role="tab">Agenda</button>
-        <button data-tab="horarios" role="tab">Horários e bloqueios</button>
+        <button data-tab="horarios" role="tab">Horários</button>
+        <button data-tab="depoimentos" role="tab">Depoimentos <span class="cnt" id="depCnt" hidden></span></button>
+        <button data-tab="videos" role="tab">Vídeos</button>
       </div>
     </div>
 
@@ -249,6 +269,28 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
         <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="busca" placeholder="Buscar paciente ou telefone" type="search"></label>
       </div>
       <div id="lista"></div>
+    </section>
+
+    <section id="tDepoimentos" hidden>
+      <div class="card">
+        <h3>Depoimentos</h3>
+        <p>Pacientes enviam pelo site. Só aparecem no site depois que você aprovar.</p>
+        <div id="depLista"></div>
+      </div>
+    </section>
+
+    <section id="tVideos" hidden>
+      <div class="card">
+        <h3>Vídeos do site</h3>
+        <p>Envie um vídeo do celular ou cole um link do Instagram, YouTube ou Google Drive. Os vídeos aparecem na seção “Vídeos” do site, na ordem abaixo.</p>
+        <div id="vidLista"></div>
+        <div class="vid-add">
+          <button class="btn b-line" id="vidLink" type="button">+ Colar link</button>
+          <label class="btn b-ink" style="cursor:pointer">+ Enviar vídeo do celular<input type="file" id="vidFile" accept="video/*" hidden></label>
+        </div>
+        <p class="vid-prog" id="vidProg" hidden></p>
+        <button class="btn b-ink" id="vidSalvar" type="button" style="margin-top:14px">Salvar vídeos</button>
+      </div>
     </section>
 
     <section id="tHorarios" hidden>
@@ -370,7 +412,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
   }
 
   /* ================= LOGIN ================= */
-  function mostrarApp(){ $('vLogin').hidden = true; $('vApp').hidden = false; $('demoBar').hidden = !demo; carregar(); }
+  function mostrarApp(){ $('vLogin').hidden = true; $('vApp').hidden = false; $('demoBar').hidden = !demo; carregar(); if (!demo) setTimeout(carregarDeps, 600); }
   $('fLogin').addEventListener('submit', function(e){
     e.preventDefault(); $('lErr').hidden = true; $('lBtn').disabled = true; $('lBtn').textContent = 'Entrando…';
     api('entrar', {user: $('lUser').value, pass: $('lPass').value, lembrar: $('lLembrar').checked}).then(function(j){
@@ -599,11 +641,76 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
   }
   $('bNovo').addEventListener('click', novo); $('bNovo2').addEventListener('click', novo);
 
+
+  /* ================= DEPOIMENTOS ================= */
+  var DEPS = [];
+  function carregarDeps(){
+    if (demo){ DEPS = DEPS.length ? DEPS : [{id:'d1', nome:'Exemplo de paciente', texto:'Na prévia não há depoimentos reais. No site publicado, os depoimentos enviados pelos pacientes aparecem aqui para você aprovar.', trat:'Exemplo', nota:5, data:hojeBR(), status:'pendente'}]; desenharDeps(); return; }
+    api('depoimentos').then(function(j){ DEPS = j.depoimentos || []; desenharDeps(); }).catch(function(err){ if (!sessaoCaiu(err)) toast((err && err.erro) || 'Não deu certo.'); });
+  }
+  function desenharDeps(){
+    var pend = DEPS.filter(function(d){ return d.status === 'pendente'; }).length;
+    $('depCnt').hidden = !pend; $('depCnt').textContent = pend;
+    $('depLista').innerHTML = DEPS.length ? DEPS.map(function(d){
+      return '<div class="dep"><div class="dep-h"><b>' + esc(d.nome) + '</b><span style="color:#E0A33A">' + '★★★★★'.slice(0, d.nota || 5) + '</span><small>' + esc(d.trat || '') + ' · ' + esc(d.data || '') + '</small><span class="stt ' + d.status + '">' + ({pendente:'A aprovar', aprovado:'No site', oculto:'Oculto'})[d.status] + '</span></div><q>' + esc(d.texto) + '</q><div class="dep-a">' +
+        (d.status !== 'aprovado' ? '<button class="btn b-ink" data-dep="' + d.id + '" data-s="aprovado">Aprovar e publicar</button>' : '<button class="btn b-line" data-dep="' + d.id + '" data-s="oculto">Tirar do site</button>') +
+        '<button class="btn b-line" data-dep="' + d.id + '" data-s="apagar" style="color:var(--bad)">Apagar</button></div></div>';
+    }).join('') : '<div class="vazio"><b>Nenhum depoimento ainda</b>Quando um paciente enviar pelo site, ele aparece aqui.</div>';
+  }
+  $('depLista').addEventListener('click', function(e){
+    var b = e.target.closest('[data-dep]'); if (!b) return;
+    if (b.dataset.s === 'apagar' && b.dataset.c !== '1'){ b.dataset.c = '1'; b.textContent = 'Toque de novo para apagar'; return; }
+    if (demo){ DEPS = b.dataset.s === 'apagar' ? DEPS.filter(function(d){ return d.id !== b.dataset.dep; }) : DEPS.map(function(d){ if (d.id === b.dataset.dep) d.status = b.dataset.s; return d; }); desenharDeps(); return; }
+    api('depoimentos', {id: b.dataset.dep, status: b.dataset.s}).then(function(j){ DEPS = j.depoimentos || []; desenharDeps(); toast(b.dataset.s === 'aprovado' ? 'Publicado no site' : b.dataset.s === 'apagar' ? 'Apagado' : 'Tirado do site'); });
+  });
+
+  /* ================= VÍDEOS ================= */
+  var VIDS = [], VCATS = {exercicios:'Exercícios', dicas:'Dicas', laser:'Laserterapia', atendimentos:'Atendimentos', eventos:'Eventos'}, VUP = null;
+  function carregarVids(){
+    if (demo){ desenharVids(); return; }
+    api('videos').then(function(j){ VIDS = j.videos || []; desenharVids(); }).catch(function(err){ if (!sessaoCaiu(err)) toast((err && err.erro) || 'Não deu certo.'); });
+  }
+  function desenharVids(){
+    $('vidLista').innerHTML = VIDS.length ? VIDS.map(function(v, i){
+      var file = v.video && /blob\.vercel-storage\.com|\.(mp4|mov|webm|m4v)(\?|$)/i.test(v.video);
+      return '<div class="vid"><div class="vid-th">' + (file ? '<video src="' + esc(v.video) + '#t=0.5" muted playsinline preload="metadata"></video>' : 'link') + '</div>' +
+        '<div class="vid-f"><input data-k="titulo" data-i="' + i + '" value="' + esc(v.titulo) + '" placeholder="Título do vídeo">' +
+        '<select data-k="cat" data-i="' + i + '">' + Object.keys(VCATS).map(function(k){ return '<option value="' + k + '"' + (v.cat === k ? ' selected' : '') + '>' + VCATS[k] + '</option>'; }).join('') + '</select>' +
+        (file ? '' : '<input data-k="link" data-i="' + i + '" value="' + esc(v.link || v.video || '') + '" placeholder="Link do Instagram, YouTube ou Drive">') + '</div>' +
+        '<div class="vid-o"><button data-up="' + i + '" aria-label="Subir">↑</button><button data-dn="' + i + '" aria-label="Descer">↓</button><button data-rm="' + i + '" aria-label="Remover" style="color:var(--bad)">×</button></div></div>';
+    }).join('') : '<div class="vazio"><b>Nenhum vídeo ainda</b>Enquanto não houver vídeos, o site mostra cartões que levam ao Instagram.</div>';
+  }
+  $('vidLista').addEventListener('input', function(e){ var t = e.target; if (t.dataset.k == null) return; var v = VIDS[+t.dataset.i]; v[t.dataset.k] = t.value; if (t.dataset.k === 'link') v.video = ''; });
+  $('vidLista').addEventListener('click', function(e){
+    var u = e.target.closest('[data-up]'), d = e.target.closest('[data-dn]'), r = e.target.closest('[data-rm]');
+    if (u){ var i = +u.dataset.up; if (i > 0){ var t = VIDS[i]; VIDS[i] = VIDS[i - 1]; VIDS[i - 1] = t; desenharVids(); } }
+    if (d){ var k = +d.dataset.dn; if (k < VIDS.length - 1){ var t2 = VIDS[k]; VIDS[k] = VIDS[k + 1]; VIDS[k + 1] = t2; desenharVids(); } }
+    if (r){ var v = VIDS.splice(+r.dataset.rm, 1)[0]; desenharVids(); if (v && v.video && /blob\.vercel-storage\.com\/videos\//.test(v.video) && !demo) fetch('api/video', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({acao:'apagar', url: v.video, tok: tok})}); }
+  });
+  $('vidLink').addEventListener('click', function(){ VIDS.push({titulo:'', cat:'dicas', link:'', video:''}); desenharVids(); var ins = $('vidLista').querySelectorAll('input[data-k="titulo"]'); if (ins.length) ins[ins.length - 1].focus(); });
+  $('vidFile').addEventListener('change', function(){
+    var f = this.files && this.files[0]; this.value = ''; if (!f) return;
+    if (demo){ toast('Na prévia não é possível enviar vídeos.'); return; }
+    var p = $('vidProg'); p.hidden = false; p.textContent = 'Enviando ' + f.name + '… 0%';
+    var ext = (f.name.split('.').pop() || 'mp4').toLowerCase().replace(/[^a-z0-9]/g, '') || 'mp4', base = Date.now().toString(36);
+    (VUP || (VUP = import('/blob-upload.js'))).then(function(m){
+      return m.upload('videos/' + base + '.' + ext, f, {access:'public', handleUploadUrl:'/api/video', clientPayload: JSON.stringify({tok: tok}), contentType: f.type || 'video/mp4', multipart: f.size > 8 * 1024 * 1024,
+        onUploadProgress: function(ev){ p.textContent = 'Enviando ' + f.name + '… ' + Math.round(ev.percentage || 0) + '%'; }});
+    }).then(function(b){
+      VIDS.push({titulo: f.name.replace(/\.[^.]+$/, '').slice(0, 80), cat:'dicas', video: b.url, link:''}); desenharVids();
+      p.textContent = 'Vídeo enviado! Dê um título e toque em “Salvar vídeos”.';
+    }).catch(function(err){ p.textContent = 'Não foi possível enviar: ' + ((err && err.message) || err); });
+  });
+  $('vidSalvar').addEventListener('click', function(){
+    if (demo){ toast('Salvo (prévia)'); return; }
+    api('videos', {videos: VIDS}).then(function(j){ VIDS = j.videos || []; desenharVids(); toast('Vídeos salvos — já aparecem no site'); }).catch(function(err){ toast((err && err.erro) || 'Não deu certo.'); });
+  });
   /* ================= ABAS ================= */
   document.querySelector('.tabs').addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
     [].forEach.call(this.children, function(c){ c.classList.toggle('on', c === b); });
-    $('tAgenda').hidden = b.dataset.tab !== 'agenda'; $('tHorarios').hidden = b.dataset.tab !== 'horarios';
+    $('tAgenda').hidden = b.dataset.tab !== 'agenda'; $('tHorarios').hidden = b.dataset.tab !== 'horarios'; $('tDepoimentos').hidden = b.dataset.tab !== 'depoimentos'; $('tVideos').hidden = b.dataset.tab !== 'videos';
+    if (b.dataset.tab === 'depoimentos') carregarDeps(); if (b.dataset.tab === 'videos') carregarVids();
   });
 
   /* ================= HORÁRIOS ================= */

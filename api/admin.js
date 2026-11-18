@@ -161,6 +161,35 @@ async function main(req) {
       return { horas: g.map((h, i) => ({ hora: h, ocupado: Boolean(oc[0][i]) })) };
     }
 
+    case "depoimentos": { // lista todos; ou muda status / apaga um
+      const [raw] = await pipeline([["GET", K.deps]]);
+      let lista = []; try { lista = JSON.parse(raw) || []; } catch {}
+      if (b.id) {
+        const id = String(b.id).replace(/[^\w]/g, "");
+        if (b.status === "apagar") lista = lista.filter((d) => d.id !== id);
+        else if (["aprovado", "oculto", "pendente"].includes(b.status)) lista.forEach((d) => { if (d.id === id) d.status = b.status; });
+        await pipeline([["SET", K.deps, JSON.stringify(lista)]]);
+      }
+      return { depoimentos: lista };
+    }
+
+    case "videos": { // lê ou salva a lista de vídeos do site
+      if (Array.isArray(b.videos)) {
+        const CATS = ["exercicios", "dicas", "laser", "atendimentos", "eventos"];
+        const ok = (u) => /^https:\/\//.test(String(u || "")) ? String(u).slice(0, 600) : "";
+        const lista = b.videos.slice(0, 40).map((v, i) => ({
+          id: String(v.id || "v" + Date.now().toString(36) + i).replace(/[^\w]/g, "").slice(0, 24),
+          titulo: txt(v.titulo, 80), cat: CATS.includes(v.cat) ? v.cat : "dicas",
+          video: ok(v.video), link: ok(v.link), capa: ok(v.capa),
+        })).filter((v) => v.titulo || v.video || v.link);
+        await pipeline([["SET", K.videos, JSON.stringify(lista)]]);
+        return { ok: true, videos: lista };
+      }
+      const [raw] = await pipeline([["GET", K.videos]]);
+      let v = []; try { v = JSON.parse(raw) || []; } catch {}
+      return { videos: Array.isArray(v) ? v : [] };
+    }
+
     default:
       throw new Err(400, "Ação desconhecida.");
   }

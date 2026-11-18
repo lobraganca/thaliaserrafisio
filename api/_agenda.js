@@ -10,6 +10,8 @@ export const K = {
   bloq: "th:bloq",                       // SET: "AAAA-MM-DD" (dia todo) ou "AAAA-MM-DD HH:MM"
   sess: (t) => `th:sess:${t}`,
   rl: (ip) => `th:rl:${ip}`,
+  videos: "th:videos",
+  deps: "th:deps",                       // JSON: depoimentos (pendente/aprovado/oculto)                   // JSON: lista de vídeos do site
 };
 
 export const SERVICOS = {
