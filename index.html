@@ -624,6 +624,39 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 @keyframes pulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
 @media (max-width:620px){.orb.o1{width:260px;height:260px}.orb.o2{width:220px;height:220px}}
 @media (prefers-reduced-motion:reduce){.orb,.badge,.angle-tag,.pr-grid figure.in img,.final-box::after{animation:none !important}.pr-grid figure{clip-path:none}.hl{background-size:100% 100%}}
+
+/* ---------- DOMICÍLIO (novo) ---------- */
+.casa2{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;background:var(--lime);border-radius:36px;padding:clamp(24px,4vw,52px);overflow:hidden}
+.casa2::before{content:"";position:absolute;width:500px;height:500px;left:-200px;bottom:-300px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.45),transparent 65%);pointer-events:none}
+.c2-txt{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.c2-txt .kicker{color:var(--bordo)}
+.c2-txt h2{margin:0;font-size:clamp(32px,4.4vw,56px)}
+.c2-txt .lead{color:#3D2A2C;margin:0}
+.c2-list{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:10px;width:100%}
+.c2-list li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.55);border-radius:18px;padding:10px 14px;transition:transform .25s,background .25s}
+.c2-list li:hover{transform:translateX(4px);background:rgba(255,255,255,.85)}
+.c2-i{width:38px;height:38px;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.c2-i svg{width:19px;height:19px}
+.c2-list b{display:block;font-size:15px;line-height:1.25}
+.c2-list small{display:block;font-size:13px;color:#5E4A4C}
+.c2-map{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:6/5;box-shadow:0 30px 60px rgba(123,30,46,.18);background:#F7DCDB}
+.c2-map svg{width:100%;height:100%;display:block}
+.c2-eta{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:10px 14px;box-shadow:0 12px 30px rgba(14,22,19,.12);animation:bob 5s ease-in-out infinite}
+.c2-eta b{display:block;font-size:13.5px;line-height:1.2}
+.c2-eta small{display:block;font-size:11.5px;color:var(--muted)}
+.c2-dot{width:10px;height:10px;border-radius:50%;background:#2F9E5B;box-shadow:0 0 0 0 rgba(47,158,91,.5);animation:blink 1.8s infinite}
+@media (max-width:880px){.casa2{grid-template-columns:minmax(0,1fr);border-radius:28px}.c2-map{order:-1}.c2-txt .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.c2-eta,.c2-dot{animation:none}}
+
+/* ---------- "ONDE DÓI": painel em vidro ---------- */
+.dor-panel{background:rgba(255,255,255,.55) !important;border:1px solid rgba(255,255,255,.75) !important;-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);box-shadow:0 30px 70px rgba(14,22,19,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.dor-panel li{background:rgba(255,255,255,.6) !important;border-color:rgba(255,255,255,.8) !important}
+.dor-panel .tag{background:rgba(123,30,46,.1) !important}
+@media (max-width:879px){
+  .dor-panel{background:rgba(255,255,255,.62) !important;-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);box-shadow:0 30px 80px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.9)}
+  .dor-ov{background:rgba(14,22,19,.12) !important}
+  .dor-x{background:rgba(255,255,255,.7) !important;border-color:rgba(255,255,255,.9) !important}
+}
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -868,31 +901,63 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 <!-- DOMICÍLIO -->
 <section class="casa" id="domicilio">
   <div class="wrap">
-    <div class="casa-box rv">
-      <div class="casa-ico casa-anim" aria-hidden="true"><svg viewBox="0 0 200 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <!-- caminho do consultório até a casa -->
-        <path id="rota" d="M22 92 C60 92 62 40 100 52 S150 96 172 70" stroke="#E7C9C7" stroke-width="3" stroke-dasharray="2 8"/>
-        <path d="M22 92 C60 92 62 40 100 52 S150 96 172 70" stroke="#7B1E2E" stroke-width="3" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"><animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.55;.85;1" dur="4.5s" repeatCount="indefinite"/></path>
-        <!-- consultório (pino) -->
-        <g transform="translate(22 92)"><circle r="9" fill="#0E1613"/><circle r="3.5" fill="#F3C3C1"/></g>
-        <!-- fisioterapeuta indo -->
-        <circle r="7" fill="#7B1E2E" stroke="#fff" stroke-width="2.5"><animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;1;1;0" keyTimes="0;.55;.85;1" calcMode="linear"><mpath href="#rota"/></animateMotion></circle>
-        <!-- casa -->
-        <g transform="translate(172 58)" stroke="#0E1613" stroke-width="3.2">
-          <path d="M-18 4 0-12 18 4" />
-          <path d="M-13 0v22h26V0" fill="#fff"/>
-          <path d="M0 6v9M-4.5 10.5h9" stroke="#7B1E2E"><animate attributeName="stroke" values="#0E1613;#0E1613;#7B1E2E;#7B1E2E;#0E1613" keyTimes="0;.5;.56;.85;1" dur="4.5s" repeatCount="indefinite"/></path>
-        </g>
-        <circle cx="172" cy="66" r="10" fill="none" stroke="#7B1E2E" stroke-width="2" opacity="0"><animate attributeName="r" values="10;10;34;34" keyTimes="0;.55;.8;1" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;.6;0;0" keyTimes="0;.54;.56;.8;1" dur="4.5s" repeatCount="indefinite"/></circle>
-      </svg></div>
-      <div class="casa-txt">
+    <div class="casa2 rv">
+      <div class="c2-txt">
         <span class="kicker">Atendimento domiciliar</span>
         <h2 class="t">A fisioterapia <em class="s">vai até você.</em></h2>
-        <p class="lead">Atendimento em domicílio em Itabirito e região, com o equipamento necessário — inclusive o laser — e o mesmo cuidado do consultório.</p>
-        
+        <p class="lead">A Thalia leva o atendimento completo até a sua casa em Itabirito e região — com o mesmo cuidado e os mesmos recursos do consultório.</p>
+        <ul class="c2-list">
+          <li><span class="c2-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 10"/><path d="M14 10l2-2"/><circle cx="18" cy="6" r="2.5"/></svg></span><span><b>Laser e equipamentos portáteis</b><small>O tratamento completo, sem improviso</small></span></li>
+          <li><span class="c2-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/></svg></span><span><b>Pós-operatório e mobilidade reduzida</b><small>Sem deslocamento para quem não pode sair</small></span></li>
+          <li><span class="c2-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>Mais tempo para você</b><small>Sem trânsito e sem sala de espera</small></span></li>
+        </ul>
+        <a class="btn btn-ink" href="agendar.html?local=domicilio"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar atendimento em casa</a>
       </div>
-      <a class="btn btn-ink casa-btn" href="agendar.html?local=domicilio">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar em casa</a>
+
+      <div class="c2-map" aria-hidden="true">
+        <svg viewBox="0 0 360 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <defs>
+            <pattern id="quadras" width="60" height="60" patternUnits="userSpaceOnUse"><rect x="6" y="6" width="48" height="48" rx="8" fill="#fff" fill-opacity=".55"/></pattern>
+            <radialGradient id="mapFade" cx=".5" cy=".5" r=".65"><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#F3C3C1"/></radialGradient>
+          </defs>
+          <rect width="360" height="300" fill="#F7DCDB"/>
+          <rect width="360" height="300" fill="url(#quadras)"/>
+          <path d="M-10 214 C80 200 120 250 200 236 S330 190 370 204" stroke="#AFC4A5" stroke-opacity=".7" stroke-width="16"/>
+          <rect x="246" y="66" width="72" height="54" rx="10" fill="#DCE7D6"/>
+          <!-- rota -->
+          <path id="rota2" d="M70 236 C70 180 126 186 150 150 S168 92 222 92 S292 120 300 150" stroke="#fff" stroke-width="11"/>
+          <path d="M70 236 C70 180 126 186 150 150 S168 92 222 92 S292 120 300 150" stroke="#7B1E2E" stroke-width="4.5" stroke-dasharray="1 9"/>
+          <path d="M70 236 C70 180 126 186 150 150 S168 92 222 92 S292 120 300 150" stroke="#7B1E2E" stroke-width="4.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"><animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.55;.9;1" dur="7s" repeatCount="indefinite"/></path>
+          <!-- consultório -->
+          <g transform="translate(70 236)">
+            <circle r="18" fill="#0E1613" opacity=".12"><animate attributeName="r" values="14;22;14" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle r="11" fill="#0E1613"/><text y="4" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#F3C3C1">TS</text>
+          </g>
+          <g transform="translate(36 268)"><rect width="72" height="20" rx="10" fill="#0E1613"/><text x="36" y="13.5" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="800" fill="#fff">Consultório</text></g>
+          <!-- casa -->
+          <g transform="translate(300 150)">
+            <circle r="22" fill="#7B1E2E" opacity="0"><animate attributeName="opacity" values="0;0;.18;0;0" keyTimes="0;.54;.6;.85;1" dur="7s" repeatCount="indefinite"/><animate attributeName="r" values="18;18;40;40;18" keyTimes="0;.54;.8;.9;1" dur="7s" repeatCount="indefinite"/></circle>
+            <circle r="22" fill="#fff" stroke="#0E1613" stroke-width="2.5"/>
+            <path d="M-11 1 0-9 11 1M-8-1v12h16V-1" stroke="#0E1613" stroke-width="2.4"/>
+            <path d="M0 2v6M-3 5h6" stroke="#7B1E2E" stroke-width="2.4"/>
+          </g>
+          <!-- bolha "chegou" -->
+          <g opacity="0" transform="translate(300 106)">
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.55;.6;.86;.92" dur="7s" repeatCount="indefinite"/>
+            <rect x="-46" y="-14" width="92" height="26" rx="13" fill="#0E1613"/>
+            <path d="M-5 12 0 18 5 12" fill="#0E1613"/>
+            <text y="4" text-anchor="middle" font-family="Manrope,sans-serif" font-size="10" font-weight="800" fill="#F3C3C1">Sessão em casa ✓</text>
+          </g>
+          <!-- fisioterapeuta a caminho -->
+          <g>
+            <animateMotion keyPoints="0;1;1;0" keyTimes="0;.55;.9;1" calcMode="linear" dur="7s" repeatCount="indefinite"><mpath href="#rota2"/></animateMotion>
+            <circle r="15" fill="#7B1E2E" opacity=".2"><animate attributeName="r" values="12;19;12" dur="1.2s" repeatCount="indefinite"/></circle>
+            <circle r="11" fill="#7B1E2E" stroke="#fff" stroke-width="3"/>
+            <path d="M-4.5 0h9M0-4.5v9" stroke="#fff" stroke-width="2.4"/>
+          </g>
+        </svg>
+        <div class="c2-eta"><span class="c2-dot"></span><span><b>Thalia a caminho</b><small>Itabirito e região</small></span></div>
+      </div>
     </div>
   </div>
 </section>
