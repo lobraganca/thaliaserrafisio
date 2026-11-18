@@ -780,7 +780,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
   <div class="wrap hero-in">
     <div>
       <p class="hero-who">Dra. Thalia Serra <span>·</span> Fisioterapeuta</p>
-      <a class="chip" href="agendar.html" style="text-decoration:none"><i></i>Agenda online aberta<span class="chip-x"> · horários esta semana</span></a>
+      <a class="chip" href="agendar.html" style="text-decoration:none"><i></i>Pré-avaliação online<span class="chip-x"> · agende em 1 minuto</span></a>
       <h1>
         <span class="l"><span>Volte a</span></span>
         <span class="l"><span>se mover</span></span>
@@ -830,9 +830,9 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       <a class="passo rv" href="agendar.html">
         <span class="p-n">2</span>
         <span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></svg></span>
-        <b>Escolha dia e horário</b>
-        <small>Agenda online com os horários livres — no consultório ou em casa.</small>
-        <span class="p-go">Abrir a agenda →</span>
+        <b>Faça a pré-avaliação</b>
+        <small>Conte sobre a sua dor e escolha quando prefere ser atendido.</small>
+        <span class="p-go">Começar →</span>
       </a>
       <a class="passo rv" href="agendar.html">
         <span class="p-n">3</span>
@@ -890,7 +890,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
         <ul id="pList"></ul>
         <p class="como" id="pComo"></p>
         <div class="p-acts"><a class="btn btn-ink" id="pBtn" href="agendar.html">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="pBtnTxt">Agendar avaliação</span></a><a class="p-wa" id="pWa" target="_blank" rel="noopener">ou tire dúvidas no WhatsApp</a></div>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="pBtnTxt">Agendar avaliação</span></a></div>
       </div>
     </div>
   </div>
@@ -1132,7 +1132,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
     <div class="final-box rv">
       <span class="kicker" style="color:var(--sage)">Agendamento online</span>
       <h2 class="t">Seu próximo passo é <em class="s">sem dor.</em></h2>
-      <p class="lead">Escolha o atendimento, o dia e o horário em menos de um minuto — no consultório ou na sua casa.</p>
+      <p class="lead">Faça a pré-avaliação online e envie direto para a Thalia no WhatsApp — no consultório ou na sua casa.</p>
       <div class="final-ctas">
         <a class="btn btn-lime" href="agendar.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar meu horário</a>
         <a class="btn btn-ghost" data-wa="Olá, Thalia! Vim pelo site e tenho uma dúvida antes de agendar." target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
@@ -1355,7 +1355,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
     pComo.innerHTML = r.como;
     pBtnTxt.textContent = 'Agendar avaliação · ' + ({cervical:'pescoço', ombro:'ombro', cotovelo:'cotovelo', punho:'punho', lombar:'lombar', quadril:'quadril', joelho:'joelho', tornozelo:'tornozelo'})[r.id];
     pBtn.href = 'agendar.html?servico=avaliacao&regiao=' + r.id;
-    document.getElementById('pWa').href = link('Olá, Thalia! Vim pelo site. Estou com dor na região: ' + r.nome.toLowerCase() + '. Tenho uma dúvida antes de agendar.');
+    if (document.getElementById('pWa')) document.getElementById('pWa').href = link('Olá, Thalia! Vim pelo site. Estou com dor na região: ' + r.nome.toLowerCase() + '. Tenho uma dúvida antes de agendar.');
     if (!reduce && painel.dataset.ready){ painel.classList.remove('swap'); void painel.offsetWidth; painel.classList.add('swap'); }
     painel.dataset.ready = '1';
     if (user && window.innerWidth < 880) abrirSheet();
