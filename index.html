@@ -450,6 +450,13 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 .quem{padding-top:clamp(12px,2vw,28px) !important}
 .cards .card{min-height:210px}
 
+.gonio .ticks line{transition:stroke .25s}
+.gonio .ticks line.on{stroke:#F3C3C1}
+.gonio .ticks line.big.on{stroke:#fff}
+.angle-tag{transition:transform .35s cubic-bezier(.2,1.4,.4,1),box-shadow .35s}
+.angle-tag.hold{transform:scale(1.08);box-shadow:0 20px 50px rgba(243,195,193,.35)}
+.angle-tag b{font-variant-numeric:tabular-nums}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -848,24 +855,49 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
     arc.setAttribute('d', v < .5 ? '' : 'M' + C + ' ' + (C - R) + ' A' + R + ' ' + R + ' 0 0 1 ' + x.toFixed(1) + ' ' + y.toFixed(1));
     deg.textContent = Math.round(v) + '°';
   }
-  var gCur = 0, gAlvo = 135, gAnim = false;
-  function gLoop(){
-    var d = gAlvo - gCur;
-    if (Math.abs(d) < .15){ gCur = gAlvo; drawAngle(gCur); gAnim = false; return; }
-    gCur += d * .07; drawAngle(gCur); requestAnimationFrame(gLoop);
+  // ciclo de "teste de amplitude": sobe, segura, desce — como um movimento de reabilitação
+  var tickEls = [].slice.call(ticks.querySelectorAll('line')), gCur = 0, tw = null, mouseAt = 0, seqI = 0;
+  var SEQ = [150, 40, 125, 70, 170, 25, 110];
+  function ease(t){ return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function pinta(v){
+    drawAngle(v);
+    tickEls.forEach(function(l, k){ l.classList.toggle('on', k * 5 <= v + .5); });
   }
-  function gGo(v){ gAlvo = v; if (!gAnim){ gAnim = true; requestAnimationFrame(gLoop); } }
-  if (reduce) drawAngle(135);
+  function tween(to, dur, done){
+    var from = gCur, t0 = performance.now();
+    tw = function(now){
+      var k = Math.min(1, (now - t0) / dur);
+      gCur = from + (to - from) * ease(k); pinta(gCur);
+      if (k < 1) requestAnimationFrame(tw); else { tw = null; if (done) done(); }
+    };
+    requestAnimationFrame(tw);
+  }
+  var heroVis = true, timer = null;
+  function proximo(){
+    if (!heroVis || Date.now() - mouseAt < 1800){ timer = setTimeout(proximo, 600); return; }
+    var alvo = SEQ[seqI++ % SEQ.length], dur = 900 + Math.abs(alvo - gCur) * 9;
+    document.querySelector('.angle-tag').classList.add('mov');
+    tween(alvo, dur, function(){
+      document.querySelector('.angle-tag').classList.remove('mov');
+      document.querySelector('.angle-tag').classList.add('hold');
+      setTimeout(function(){ document.querySelector('.angle-tag').classList.remove('hold'); }, 500);
+      timer = setTimeout(proximo, 700);
+    });
+  }
+  if (reduce) pinta(135);
   else {
-    drawAngle(0); setTimeout(function(){ gGo(135); }, 700);
+    pinta(0); timer = setTimeout(proximo, 700);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ heroVis = es[0].isIntersecting; }).observe(document.getElementById('heroPhoto'));
     var photo = document.getElementById('heroPhoto'), hero0 = document.querySelector('.hero');
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+      var seg = null, seguindo = false;
       hero0.addEventListener('pointermove', function(e){
+        if (tw) return;
         var b = photo.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height * .45;
         var ang = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI + 90; if (ang < 0) ang += 360;
-        gGo(Math.max(10, Math.min(MAX, ang > 270 ? 10 : ang)));
+        seg = Math.max(5, Math.min(MAX, ang > 270 ? 5 : ang)); mouseAt = Date.now();
+        if (!seguindo){ seguindo = true; (function f(){ var d = seg - gCur; if (Math.abs(d) > .2 && Date.now() - mouseAt < 1800){ gCur += d * .12; pinta(gCur); requestAnimationFrame(f); } else seguindo = false; })(); }
       });
-      hero0.addEventListener('pointerleave', function(){ gGo(135); });
     }
   }
 
