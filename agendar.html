@@ -82,6 +82,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400}
 .serv .si svg{width:24px;height:24px}
 .serv b{display:block;font-size:16px;line-height:1.25}
 .serv small{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:3px}
+.serv{padding-right:42px}
 .serv .rad{position:absolute;right:14px;top:14px;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);transition:all .2s}
 .serv.on{border-color:var(--ink);background:var(--ink);color:#fff;box-shadow:0 18px 40px rgba(14,22,19,.2)}
 .serv.on small{color:#B9C7C0}
@@ -384,7 +385,7 @@ fieldset.fld{border:0;margin:0 0 14px;padding:0}
 
   // ---- render passo 1
   $('servs').innerHTML = SERV.map(function(s, i){
-    return '<button type="button" class="serv' + (i === 0 ? ' dest' : '') + '" data-v="' + s.id + '"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + s.ico + '</svg></span><span><b>' + s.nome + '</b><small>' + s.sub + '</small></span><span class="rad"></span></button>';
+    return '<button type="button" class="serv' + '' + '" data-v="' + s.id + '"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + s.ico + '</svg></span><span><b>' + s.nome + '</b><small>' + s.sub + '</small></span><span class="rad"></span></button>';
   }).join('');
   $('regs').innerHTML = REG.map(function(r){ return '<button type="button" data-v="' + r[0] + '">' + r[1] + '</button>'; }).join('');
   function servNome(){ return SERV.filter(function(s){ return s.id === st.servico; })[0].nome; }
