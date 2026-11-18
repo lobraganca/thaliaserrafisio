@@ -457,6 +457,25 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 .angle-tag.hold{transform:scale(1.08);box-shadow:0 20px 50px rgba(243,195,193,.35)}
 .angle-tag b{font-variant-numeric:tabular-nums}
 
+
+/* ---------- "ONDE DÓI": cartão flutuante compacto no celular ---------- */
+@media (max-width:879px){
+  .dor-panel{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-height:58vh;border-radius:24px;padding:18px 16px 16px;gap:10px;box-shadow:0 24px 60px rgba(0,0,0,.35);transform:translateY(calc(100% + 30px)) scale(.96) !important;transform-origin:bottom center}
+  .dor-panel.open{transform:none !important}
+  .dor-panel::before{display:none}
+  .dor-panel .tag{font-size:10.5px;padding:5px 10px}
+  .dor-panel h3{font-size:26px;margin-right:40px}
+  .dor-panel ul{display:flex;flex-wrap:wrap;gap:6px}
+  .dor-panel li{font-size:13px;padding:6px 10px;border-radius:999px;gap:6px}
+  .dor-panel li::before{width:6px;height:6px;margin-top:5px}
+  .dor-panel .como{font-size:14px;line-height:1.45}
+  .dor-panel .p-acts{gap:6px}
+  .dor-panel .p-acts .btn{min-height:46px;font-size:14px}
+  .dor-panel .p-wa{font-size:13px}
+  .dor-x{top:12px;right:12px;width:34px;height:34px;font-size:20px}
+  .dor-ov{background:rgba(14,22,19,.25);backdrop-filter:none}
+}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
