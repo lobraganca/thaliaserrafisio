@@ -427,6 +427,26 @@ section.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var
 @media (max-width:880px){.hero-ring{inset:-2% -2% auto -2%;width:104%}}
 @media (prefers-reduced-motion:reduce){.hero-ring circle{stroke-dashoffset:0}.arch,.badge,.hero-note,.hero-ctas,.hero p.sub,.chip{animation:none}}
 
+
+/* ---------- "ONDE DÓI": folha no celular ---------- */
+.dor-x,.dor-ov{display:none}
+@media (max-width:879px){
+  .dor-grid{display:block}
+  .body-card p{font-size:15px;color:#fff;font-weight:700}
+  .dor-panel{position:fixed;left:0;right:0;bottom:0;z-index:90;max-height:82vh;overflow-y:auto;overscroll-behavior:contain;border-radius:28px 28px 0 0;border:0;padding:30px 22px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -20px 60px rgba(0,0,0,.3);transform:translateY(105%) !important;opacity:1 !important;transition:transform .42s cubic-bezier(.2,.8,.2,1) !important;visibility:hidden}
+  .dor-panel.open{transform:translateY(0) !important;visibility:visible}
+  .dor-panel::before{content:"";position:absolute;top:10px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:5px;background:var(--line)}
+  .dor-panel.swap{animation:none}
+  .dor-panel ul{grid-template-columns:minmax(0,1fr)}
+  .dor-panel .p-acts .btn{width:100%}
+  .dor-panel .p-acts{justify-content:center;flex-direction:column}
+  .dor-x{display:grid;place-items:center;position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--text);z-index:2}
+  .dor-ov{display:block;position:fixed;inset:0;z-index:89;background:rgba(14,22,19,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .dor-ov.on{opacity:1;pointer-events:auto}
+  body.sheet-on{overflow:hidden}
+  body.sheet-on .dock{transform:translateY(140%) !important}
+}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -538,7 +558,7 @@ section.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var
         <span class="kicker">Interativo</span>
         <h2 class="t" style="margin-top:14px">Onde está <em class="s">doendo?</em></h2>
       </div>
-      <p class="lead">Toque no ponto do corpo e veja como a fisioterapia pode ajudar. Depois é só agendar sua avaliação.</p>
+      <p class="lead">Toque no ponto que dói e veja como a fisioterapia pode ajudar — e já agende sua avaliação.</p>
     </div>
 
     <div class="dor-grid">
@@ -566,7 +586,9 @@ section.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var
         <div class="chips-dor" id="chipsDor"></div>
       </div>
 
+      <div class="dor-ov" id="dorOv" aria-hidden="true"></div>
       <div class="dor-panel rv" id="painel" aria-live="polite">
+        <button type="button" class="dor-x" id="dorX" aria-label="Fechar">×</button>
         <span class="tag" id="pTag">Região</span>
         <h3 id="pTit">Joelho</h3>
         <ul id="pList"></ul>
@@ -900,9 +922,23 @@ section.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var
     document.getElementById('pWa').href = link('Olá, Thalia! Vim pelo site. Estou com dor na região: ' + r.nome.toLowerCase() + '. Tenho uma dúvida antes de agendar.');
     if (!reduce && painel.dataset.ready){ painel.classList.remove('swap'); void painel.offsetWidth; painel.classList.add('swap'); }
     painel.dataset.ready = '1';
-    if (user && window.innerWidth < 880){ var top = painel.getBoundingClientRect().top; if (top > window.innerHeight * .55) painel.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'}); }
+    if (user && window.innerWidth < 880) abrirSheet();
   }
   pick(6, false);
+
+  /* ====== "ONDE DÓI" NO CELULAR: explicação abre por cima, na hora ====== */
+  var dorOv = document.getElementById('dorOv');
+  function abrirSheet(){ painel.classList.add('open'); dorOv.classList.add('on'); document.body.classList.add('sheet-on'); painel.scrollTop = 0; }
+  function fecharSheet(){ painel.classList.remove('open'); dorOv.classList.remove('on'); document.body.classList.remove('sheet-on'); }
+  dorOv.addEventListener('click', fecharSheet);
+  document.getElementById('dorX').addEventListener('click', fecharSheet);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') fecharSheet(); });
+  // arrastar para baixo fecha
+  var sy = null;
+  painel.addEventListener('touchstart', function(e){ if (painel.classList.contains('open') && painel.scrollTop <= 0) sy = e.touches[0].clientY; }, {passive:true});
+  painel.addEventListener('touchmove', function(e){ if (sy == null) return; var d = e.touches[0].clientY - sy; if (d > 0) painel.style.transform = 'translateY(' + d + 'px)'; }, {passive:true});
+  painel.addEventListener('touchend', function(e){ if (sy == null) return; var d = e.changedTouches[0].clientY - sy; sy = null; painel.style.transform = ''; if (d > 90) fecharSheet(); });
+  window.addEventListener('resize', function(){ if (window.innerWidth >= 880) fecharSheet(); });
 
   /* ====== CLAREZA + DINÂMICA ====== */
   // "Como funciona": a linha enche com a rolagem e acende cada passo
