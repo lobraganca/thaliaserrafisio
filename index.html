@@ -509,8 +509,9 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
 /* laser: cena vira fundo do card, mesmo tamanho dos outros */
 .cards .card.laser{grid-template-areas:"ic idx" "h h" "p p" "go go";padding-top:18px}
-.cards .card.laser .laser-scene{position:absolute;inset:0;width:100%;height:100%;margin:0;z-index:0;opacity:.9}
-.cards .card.laser::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,22,19,.95) 0%,rgba(14,22,19,.7) 34%,rgba(14,22,19,0) 62%);z-index:0;pointer-events:none}
+.cards .card.laser .laser-scene{position:absolute;inset:6px 6px 6px auto;width:50%;height:calc(100% - 12px);margin:0;z-index:0}
+.cards .card.laser p{max-width:52%}
+.cards .card.laser::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,22,19,.9) 0%,rgba(14,22,19,.55) 32%,rgba(14,22,19,0) 52%);z-index:0;pointer-events:none}
 .cards .card.laser>*:not(.laser-scene){position:relative;z-index:1}
 .cards .card.laser .idx{position:static}
 .cards .card.laser h3{margin-top:40px}
@@ -518,8 +519,8 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
   .cards .card.laser{grid-template-areas:"h h go" "p p go";padding:14px 16px;min-height:96px}
   .cards .card.laser p{max-width:60%}
   .cards .card.laser h3{margin-top:0}
-  .cards .card.laser .laser-scene{width:100%;margin:0;height:100%}
-  .cards .card.laser::after{background:linear-gradient(90deg,rgba(14,22,19,.95) 15%,rgba(14,22,19,.6) 55%,rgba(14,22,19,.35))}
+  .cards .card.laser .laser-scene{width:40%;right:58px;margin:0;height:calc(100% - 8px);top:4px}
+  .cards .card.laser::after{background:linear-gradient(90deg,rgba(14,22,19,.9) 30%,rgba(14,22,19,0) 60%)}
 }
 /* ---------- ajustes finos ---------- */
 .p-acts{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
@@ -543,6 +544,46 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
 @media (max-width:400px){.chip-x{display:none}}
 @media (max-width:520px){.facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.fact{display:block;padding:12px 10px}.fact b{white-space:nowrap;font-size:14px}.fact span{display:block;text-align:left;margin-top:4px;font-size:11.5px}}
+
+/* ---------- IMPACTO ---------- */
+.hero-name{position:absolute;left:0;right:0;bottom:-2vw;display:flex;justify-content:space-between;padding:0 2vw;pointer-events:none;font-family:var(--disp);font-weight:800;font-size:clamp(90px,17vw,280px);line-height:.8;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(175,196,165,.13);white-space:nowrap;user-select:none}
+.hero-name span{animation:archIn 1.4s .2s cubic-bezier(.2,.8,.2,1) both}
+.hero-name span+span{animation-delay:.35s}
+.hero-who{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);animation:archIn .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-who span{color:var(--lime);margin:0 6px}
+.hero-photo{max-width:500px}
+@media (max-width:880px){.hero-name{font-size:28vw;bottom:-3vw}.hero-who{font-size:11.5px;margin-bottom:10px}}
+.stmt{background:var(--paper);padding:clamp(40px,6vw,76px) 0 clamp(20px,3vw,36px);text-align:center}
+.stmt-t{margin:0 auto;font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,64px);line-height:1.02;letter-spacing:-0.045em;max-width:18ch}
+.stmt-t em.s{color:var(--bordo);font-size:1.05em}
+.stmt-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:26px}
+.stmt-tags span{font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.pratica{background:var(--ink);color:#fff;padding:clamp(48px,7vw,96px) 0;position:relative;overflow:hidden}
+.pratica::before{content:"";position:absolute;width:800px;height:800px;left:-300px;top:-400px;background:radial-gradient(circle,rgba(126,154,116,.28),transparent 60%)}
+.pr-head{position:relative;display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(24px,3.5vw,44px)}
+.pr-head h2 em.s{color:var(--lime)}
+.pr-grid{position:relative;display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:clamp(460px,52vw,640px)}
+.pr-grid figure{position:relative;margin:0;border-radius:26px;overflow:hidden;background:#1b2622}
+.pr-a{grid-row:1/3}
+.pr-b{grid-column:2/4}
+.pr-c{grid-column:2/4}
+.pr-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.pr-a img{object-position:50% 40%}.pr-b img{object-position:50% 22%}.pr-c img{object-position:50% 55%}
+.pr-grid figure:hover img{transform:scale(1.05)}
+.pr-grid figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(14,22,19,.85))}
+.pr-grid figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.pr-grid figcaption b{font-family:var(--disp);font-size:20px;letter-spacing:-0.02em}
+.pr-grid figcaption span{font-size:13px;color:#C9D6CF}
+@media (min-width:881px){.pr-b{grid-column:2/3;grid-row:1/3}.pr-c{grid-column:3/4;grid-row:1/3}}
+@media (max-width:880px){.pr-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}.pr-grid figure{aspect-ratio:3/4}.pr-a{grid-column:1/3;grid-row:auto;aspect-ratio:4/3 !important}.pr-b,.pr-c{grid-column:auto}}
+@media (max-width:520px){.pr-grid figcaption b{font-size:16px}.pr-grid figcaption span{font-size:11.5px}.pr-grid figcaption{left:12px;right:12px;bottom:10px}}
+
+@media (max-width:880px){.hero-name{display:none}}
+.stmt-t{max-width:22ch}
+@media (max-width:520px){.stmt-t{font-size:28px}.pr-b figcaption span,.pr-c figcaption span{display:none}}
+.quem-fotos .f2{display:none}
+.quem-fotos .f1{inset:0 !important}
+.quem-fotos{max-width:440px}
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -577,9 +618,11 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-name" aria-hidden="true"><span>Thalia</span><span>Serra</span></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div>
+      <p class="hero-who">Dra. Thalia Serra <span>·</span> Fisioterapeuta</p>
       <a class="chip" href="agendar.html" style="text-decoration:none"><i></i>Agenda online aberta<span class="chip-x"> · horários esta semana</span></a>
       <h1>
         <span class="l"><span>Volte a</span></span>
@@ -716,42 +759,60 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       <article class="card rv"><span class="idx">03</span>
         <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M4 21h16"/><path d="M12 7v6l-5 4"/><path d="m12 13 5 4"/><path d="M7 10h10"/></svg></span>
         <h3>Pilates</h3><p>Força, postura e mobilidade.</p><a class="c-go" href="agendar.html?servico=pilates" aria-label="Agendar Pilates">Agendar <span aria-hidden="true">→</span></a></article>
-      <article class="card laser rv"><span class="idx">04</span>
-        <svg class="laser-scene" id="laserScene" viewBox="70 0 214 118" preserveAspectRatio="xMaxYMin meet" aria-hidden="true">
+      <article class="card laser rv">
+        <svg class="laser-scene" id="laserScene" viewBox="0 0 210 130" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
           <defs>
-            <linearGradient id="pele" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E8C7B"/><stop offset="1" stop-color="#4A6455"/></linearGradient>
-            <radialGradient id="brilhoJ"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#FF8A94"/><stop offset="1" stop-color="#FF5A6E" stop-opacity="0"/></radialGradient>
-            <filter id="blurJ" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+            <radialGradient id="inflam"><stop offset="0" stop-color="#FF5A6E" stop-opacity=".95"/><stop offset=".55" stop-color="#FF5A6E" stop-opacity=".35"/><stop offset="1" stop-color="#FF5A6E" stop-opacity="0"/></radialGradient>
+            <radialGradient id="cura"><stop offset="0" stop-color="#C8E6B8" stop-opacity=".9"/><stop offset="1" stop-color="#AFC4A5" stop-opacity="0"/></radialGradient>
+            <radialGradient id="ponta"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#FF8A94"/><stop offset="1" stop-color="#FF5A6E" stop-opacity="0"/></radialGradient>
+            <filter id="bl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+            <clipPath id="perna"><path d="M66 -5 C64 30 66 50 68 62 C66 72 72 80 79 88 L83 135 L119 135 L123 88 C130 80 136 72 134 62 C136 50 138 30 136 -5 Z"/></clipPath>
           </defs>
-          <!-- perna (vista lateral, joelho dobrado) -->
-          <path d="M-10 96 Q70 84 146 66" stroke="url(#pele)" stroke-width="34" stroke-linecap="round" fill="none"/>
-          <path d="M146 66 Q186 92 214 140" stroke="url(#pele)" stroke-width="27" stroke-linecap="round" fill="none"/>
-          <ellipse cx="150" cy="58" rx="16" ry="13" fill="#7D9A89"/>
-          <path d="M136 52 Q150 44 164 54" stroke="#AFC4A5" stroke-opacity=".35" stroke-width="1.5" fill="none"/>
-          <!-- área tratada -->
-          <ellipse cx="152" cy="56" rx="22" ry="16" fill="#FF5A6E" opacity=".22" filter="url(#blurJ)"><animate attributeName="opacity" values=".12;.32;.12" dur="1.6s" repeatCount="indefinite"/></ellipse>
-          <g fill="none" stroke="#FF8A94" stroke-width="1.4">
-            <ellipse cx="153" cy="56" rx="4" ry="3"><animate attributeName="rx" values="4;30" dur="1.8s" repeatCount="indefinite"/><animate attributeName="ry" values="3;20" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.8s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="153" cy="56" rx="4" ry="3"><animate attributeName="rx" values="4;30" dur="1.8s" begin=".9s" repeatCount="indefinite"/><animate attributeName="ry" values="3;20" dur="1.8s" begin=".9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.8s" begin=".9s" repeatCount="indefinite"/></ellipse>
+          <!-- perna translúcida -->
+          <path d="M66 -5 C64 30 66 50 68 62 C66 72 72 80 79 88 L83 135 L119 135 L123 88 C130 80 136 72 134 62 C136 50 138 30 136 -5 Z" fill="#AFC4A5" fill-opacity=".14" stroke="#AFC4A5" stroke-opacity=".55" stroke-width="1.2"/>
+          <g clip-path="url(#perna)">
+            <!-- linhas de varredura (raio-x) -->
+            <rect x="60" y="-10" width="80" height="2" fill="#AFC4A5" opacity=".35"><animate attributeName="y" values="-10;135" dur="6s" repeatCount="indefinite"/></rect>
+            <!-- ossos -->
+            <path d="M88 -5 L88 42 C79 48 79 62 91 64 C97 65 99 61 101 58 C103 61 105 65 111 64 C123 62 123 48 114 42 L114 -5 Z" fill="#E9EFE5" fill-opacity=".9"/>
+            <path d="M85 74 C90 69 112 69 117 74 L113 83 L111 135 L91 135 L89 83 Z" fill="#E9EFE5" fill-opacity=".9"/>
+            <ellipse cx="101" cy="50" rx="8.5" ry="10.5" fill="#F7FAF4" stroke="#AFC4A5" stroke-opacity=".6"/>
+            <!-- articulação: inflamada → recuperada -->
+            <ellipse cx="101" cy="68" rx="30" ry="13" fill="url(#inflam)" filter="url(#bl)">
+              <animate attributeName="opacity" values="1;1;.08;.08;1" keyTimes="0;.15;.75;.92;1" dur="6s" repeatCount="indefinite"/>
+              <animate attributeName="rx" values="30;30;18;18;30" keyTimes="0;.15;.75;.92;1" dur="6s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="101" cy="68" rx="26" ry="11" fill="url(#cura)" filter="url(#bl)">
+              <animate attributeName="opacity" values="0;0;.85;.85;0" keyTimes="0;.3;.78;.92;1" dur="6s" repeatCount="indefinite"/>
+            </ellipse>
           </g>
-          <!-- feixe -->
-          <line x1="214" y1="22" x2="153" y2="56" stroke="#FF5A6E" stroke-width="8" stroke-linecap="round" opacity=".5" filter="url(#blurJ)">
-            <animate attributeName="x2" values="147;160;147" dur="3.4s" repeatCount="indefinite"/><animate attributeName="y2" values="54;58;54" dur="3.4s" repeatCount="indefinite"/>
-          </line>
-          <line x1="214" y1="22" x2="153" y2="56" stroke="#FFD3D7" stroke-width="1.8" stroke-linecap="round">
-            <animate attributeName="x2" values="147;160;147" dur="3.4s" repeatCount="indefinite"/><animate attributeName="y2" values="54;58;54" dur="3.4s" repeatCount="indefinite"/>
-          </line>
-          <circle cx="153" cy="56" r="7" fill="url(#brilhoJ)"><animate attributeName="cx" values="147;160;147" dur="3.4s" repeatCount="indefinite"/><animate attributeName="cy" values="54;58;54" dur="3.4s" repeatCount="indefinite"/><animate attributeName="r" values="6;9;6" dur=".9s" repeatCount="indefinite"/></circle>
-          <g fill="#FFD3D7">
-            <circle cx="148" r="1.4"><animate attributeName="cy" values="50;26" dur="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.7s" repeatCount="indefinite"/></circle>
-            <circle cx="158" r="1.2"><animate attributeName="cy" values="50;30" dur="1.4s" begin=".5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.4s" begin=".5s" repeatCount="indefinite"/></circle>
+          <!-- ondas de luz -->
+          <g fill="none" stroke="#FF8A94" stroke-width="1.2">
+            <ellipse cx="101" cy="68" rx="4" ry="2"><animate attributeName="rx" values="4;34" dur="1.5s" repeatCount="indefinite"/><animate attributeName="ry" values="2;14" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.5s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="101" cy="68" rx="4" ry="2"><animate attributeName="rx" values="4;34" dur="1.5s" begin=".75s" repeatCount="indefinite"/><animate attributeName="ry" values="2;14" dur="1.5s" begin=".75s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.5s" begin=".75s" repeatCount="indefinite"/></ellipse>
           </g>
-          <!-- caneta de laser -->
-          <g transform="rotate(-29 214 22)">
-            <rect x="212" y="15" width="72" height="14" rx="7" fill="#E9EFE5"/>
-            <rect x="228" y="15" width="10" height="14" fill="#AFC4A5"/>
-            <rect x="204" y="17.5" width="12" height="9" rx="3" fill="#C9D3C4"/>
-            <circle cx="252" cy="22" r="2.4" fill="#FF5A6E"><animate attributeName="opacity" values="1;.3;1" dur="1s" repeatCount="indefinite"/></circle>
+          <!-- feixe que varre a articulação -->
+          <g>
+            <line x1="158" y1="24" x2="101" y2="68" stroke="#FF5A6E" stroke-width="7" stroke-linecap="round" opacity=".55" filter="url(#bl)"><animate attributeName="x2" values="86;116;86" dur="2.4s" repeatCount="indefinite"/></line>
+            <line x1="158" y1="24" x2="101" y2="68" stroke="#FFE1E4" stroke-width="1.6" stroke-linecap="round"><animate attributeName="x2" values="86;116;86" dur="2.4s" repeatCount="indefinite"/></line>
+            <circle cx="101" cy="68" r="6" fill="url(#ponta)"><animate attributeName="cx" values="86;116;86" dur="2.4s" repeatCount="indefinite"/><animate attributeName="r" values="5;8;5" dur=".8s" repeatCount="indefinite"/></circle>
+          </g>
+          <!-- caneta -->
+          <g transform="rotate(-38 158 24)">
+            <rect x="156" y="17.5" width="60" height="13" rx="6.5" fill="#E9EFE5"/>
+            <rect x="170" y="17.5" width="9" height="13" fill="#AFC4A5"/>
+            <rect x="149" y="20" width="11" height="8" rx="3" fill="#C9D3C4"/>
+            <circle cx="192" cy="24" r="2.2" fill="#FF5A6E"><animate attributeName="opacity" values="1;.25;1" dur="1s" repeatCount="indefinite"/></circle>
+          </g>
+          <!-- medidor de dor -->
+          <g transform="translate(186 44)">
+            <text x="6" y="-6" text-anchor="middle" font-family="Manrope, sans-serif" font-size="7.5" font-weight="800" letter-spacing=".6" fill="#AFC4A5">DOR</text>
+            <rect x="0" y="0" width="12" height="70" rx="6" fill="none" stroke="#AFC4A5" stroke-opacity=".5"/>
+            <rect x="2" y="2" width="8" height="66" rx="4">
+              <animate attributeName="height" values="66;66;10;10;66" keyTimes="0;.15;.75;.92;1" dur="6s" repeatCount="indefinite"/>
+              <animate attributeName="y" values="2;2;58;58;2" keyTimes="0;.15;.75;.92;1" dur="6s" repeatCount="indefinite"/>
+              <animate attributeName="fill" values="#FF5A6E;#FF5A6E;#AFC4A5;#AFC4A5;#FF5A6E" keyTimes="0;.15;.75;.92;1" dur="6s" repeatCount="indefinite"/>
+            </rect>
           </g>
         </svg>
         <h3>Laserterapia</h3><p>Alivia dor e acelera a recuperação.</p><a class="c-go" href="agendar.html?servico=laser" aria-label="Agendar Laserterapia">Agendar <span aria-hidden="true">→</span></a></article>
@@ -783,12 +844,35 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
   </div>
 </section>
 
+<!-- DECLARAÇÃO -->
+<section class="stmt">
+  <div class="wrap">
+    <p class="stmt-t rv">Cada corpo tem o seu tempo.<br><em class="s">O seu tratamento também.</em></p>
+    <div class="stmt-tags rv"><span>Pós-graduação em Ortopedia e Esportiva</span><span>Laserterapia</span><span>Pilates</span><span>Recovery esportivo</span><span>Atendimento domiciliar</span></div>
+  </div>
+</section>
+
+<!-- NA PRÁTICA -->
+<section class="pratica">
+  <div class="wrap">
+    <div class="pr-head rv">
+      <span class="kicker" style="color:var(--sage)">Na prática</span>
+      <h2 class="t">Do consultório <em class="s">à linha de chegada.</em></h2>
+    </div>
+    <div class="pr-grid">
+      <figure class="pr-a rv"><img src="img/atendimento-1.jpg" alt="Thalia fazendo liberação muscular em uma corredora durante evento" loading="lazy"><figcaption><b>Eventos esportivos</b><span>Recovery e suporte a atletas</span></figcaption></figure>
+      <figure class="pr-b rv"><img src="img/thalia-tablet.jpg" alt="Thalia analisando avaliação em um tablet" loading="lazy"><figcaption><b>Avaliação detalhada</b><span>Plano feito para o seu objetivo</span></figcaption></figure>
+      <figure class="pr-c rv"><img src="img/atendimento-2.jpg" alt="Thalia aplicando liberação miofascial na panturrilha de uma atleta" loading="lazy"><figcaption><b>Liberação miofascial</b><span>Recuperação muscular</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- QUEM SOU -->
 <section class="quem" id="quem-sou">
   <div class="wrap quem-grid">
     <div class="quem-fotos rv">
       <div class="f1"><img src="img/thalia-retrato.jpg" alt="Retrato da Dra. Thalia Serra de jaleco" loading="lazy" width="1000" height="1500"></div>
-      <div class="f2"><img src="img/atendimento-2.jpg" alt="Thalia fazendo recovery em uma atleta durante evento de corrida" loading="lazy" width="1000" height="1497"></div>
+      <div class="f2"><img src="img/thalia-jaleco.jpg" alt="Thalia fazendo recovery em uma atleta durante evento de corrida" loading="lazy" width="1000" height="1497"></div>
 
     </div>
     <div class="rv">
