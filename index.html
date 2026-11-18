@@ -11,7 +11,7 @@
 <meta property="og:description" content="Volte a se mover sem dor. Fisioterapia em Itabirito/MG — agende pelo WhatsApp.">
 <meta property="og:image" content="img/thalia-jaleco.jpg">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230E1613'/%3E%3Cpath d='M14 44 A20 20 0 0 1 50 30' fill='none' stroke='%23F3C3C1' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='44' r='5' fill='%23AFC4A5'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230E1613'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23F3C3C1' stroke-width='2'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='28' fill='%23F3C3C1'%3ETS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@ h2.t{margin:0;font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,6
 .nav.solid{background:rgba(14,22,19,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
 .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
-.brand-mark{width:40px;height:40px;border-radius:12px;background:var(--lime);display:grid;place-items:center}
+.brand-mark{width:44px;height:44px;display:grid;place-items:center;color:var(--lime);flex:none}
 .brand b{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-0.02em;line-height:1.1;display:block}
 .brand small{display:block;font-size:11px;color:var(--sage);letter-spacing:.08em;text-transform:uppercase}
 .navlinks{display:flex;gap:28px;font-size:14px;font-weight:600}
@@ -276,7 +276,7 @@ form.monte .btn{width:100%}
 .final-box h2 em.s{color:var(--lime)}
 .final-box .lead{color:#C3D0C9}
 .final-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px}
-@media (max-width:620px){.final-box{border-radius:28px}.final-ctas .btn{width:100%}}
+@media (max-width:620px){.final-arc{display:none}.final-box{border-radius:28px}.final-ctas .btn{width:100%}}
 
 /* ---------- FOOTER (padrão Ingá) ---------- */
 footer{background:linear-gradient(180deg,#132520 0%,#0A120F 100%);color:rgba(240,244,240,.75);font-size:14px}
@@ -353,7 +353,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
 
 /* ---------- CLAREZA + DINÂMICA ---------- */
 .hero-note{display:flex;flex-wrap:wrap;gap:6px 16px;margin:16px 0 0;font-size:13px;font-weight:600;color:#9FB3A9}
-.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var(--paper)}
+section.como{padding:clamp(64px,8vw,100px) 0 clamp(24px,4vw,40px);background:var(--paper)}
 .como-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:clamp(30px,4vw,52px)}
 .como-head h2{max-width:18ch}
 .como-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -400,6 +400,32 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
 }
 @media (prefers-reduced-motion:reduce){.split .w>span{transform:none}.quem-fotos .f1,.quem-fotos .f2{clip-path:none}}
 
+
+/* ---------- MOVIMENTO PROFISSIONAL (sóbrio) ---------- */
+.hero-ring{position:absolute;inset:-2% 0 auto 0;width:100%;aspect-ratio:1;pointer-events:none;overflow:visible}
+.hero-ring circle{fill:none;stroke:rgba(243,195,193,.55);stroke-width:1.2;stroke-dasharray:100;stroke-dashoffset:100;animation:ring 2.2s .5s cubic-bezier(.65,0,.35,1) forwards}
+@keyframes ring{to{stroke-dashoffset:0}}
+.arch{animation:archIn 1.1s .15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes archIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.badge{animation:archIn .9s .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-note,.hero-ctas,.hero p.sub,.chip{animation:archIn .9s cubic-bezier(.2,.8,.2,1) both}
+.chip{animation-delay:.05s}.hero p.sub{animation-delay:.45s}.hero-ctas{animation-delay:.6s}.hero-note{animation-delay:.75s}
+.hero-grid{-webkit-mask-image:radial-gradient(ellipse at 70% 45%,#000 0%,transparent 70%) !important;mask-image:radial-gradient(ellipse at 70% 45%,#000 0%,transparent 70%) !important}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:translateY(-4px);background:#fff;color:var(--text);border-color:#d8d0c1;box-shadow:0 18px 40px rgba(14,22,19,.08)}
+.card:hover p{color:var(--muted)}
+.card:hover .c-ico{background:var(--sage-l)}
+.card.feat:hover{background:var(--bordo);color:#fff;border-color:var(--bordo)}
+.card.feat:hover p{color:#F3D3D6}
+.card.laser:hover{background:var(--ink);color:#fff}
+.card.laser:hover p{color:#B9C7C0}
+.card:hover .c-go{color:var(--bordo)}
+.card.feat .c-go,.card.feat:hover .c-go,.card.laser .c-go,.card.laser:hover .c-go{color:var(--lime)}
+.spot .halo{animation-duration:3.2s}
+.chip i{animation-duration:3s}
+@media (max-width:880px){.hero-ring{inset:-2% -2% auto -2%;width:104%}}
+@media (prefers-reduced-motion:reduce){.hero-ring circle{stroke-dashoffset:0}.arch,.badge,.hero-note,.hero-ctas,.hero p.sub,.chip{animation:none}}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -415,10 +441,9 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
 
 <!-- NAVEGAÇÃO -->
 <header class="nav" id="nav">
-  <span class="progress" id="progress" aria-hidden="true"></span>
   <div class="wrap nav-in">
     <a href="#inicio" class="brand" aria-label="Thalia Serra — início">
-      <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1613" stroke-width="2.4" stroke-linecap="round"><path d="M4 17a9 9 0 0 1 16-6"/><circle cx="12" cy="17" r="2.2" fill="#0E1613"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width=".6" opacity=".45"/><text x="22" y="28.6" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="19.5" fill="currentColor">TS</text></svg></span>
       <span><b>Thalia Serra</b><small>Fisioterapia</small></span>
     </a>
     <nav class="navlinks" aria-label="Principal">
@@ -441,10 +466,10 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
       <span class="chip"><i></i>Ortopedia e Esportiva · Atende em domicílio · Itabirito/MG</span>
       <h1>
         <span class="l"><span>Volte a</span></span>
-        <span class="l"><span><span class="rot" id="rot">se mover</span></span></span>
+        <span class="l"><span>se mover</span></span>
         <span class="l"><span><em class="s">sem dor.</em></span></span>
       </h1>
-      <p class="sub">Reabilitação com <strong>foco em resultado</strong> — no consultório ou <strong>na sua casa</strong>. Para quem quer sair da dor, voltar a treinar ou chegar mais longe com segurança.</p>
+      <p class="sub">Fisioterapia ortopédica e esportiva em Itabirito — no consultório ou <strong>na sua casa</strong>, com foco em resultado.</p>
       <div class="hero-ctas">
         <a class="btn btn-lime" href="agendar.html">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar avaliação
@@ -452,40 +477,25 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
         <a class="btn btn-ghost" href="#onde-doi">Onde dói? <span aria-hidden="true">→</span></a>
       </div>
       <p class="hero-note"><span>✓ Leva 1 minuto</span><span>✓ Horários reais</span><span>✓ Consultório ou em casa</span></p>
-      <div class="pillars"><span>Prevenção</span><span>Performance</span><span>Recuperação</span></div>
     </div>
 
     <div class="hero-photo" id="heroPhoto">
+      <svg class="hero-ring" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196" pathLength="100"/></svg>
       <div class="arch"><img src="img/thalia-jaleco.jpg" alt="Dra. Thalia Serra, fisioterapeuta, de jaleco branco e sorrindo" width="1100" height="1650" fetchpriority="high"></div>
-      <svg class="gonio" viewBox="0 0 400 400" aria-hidden="true">
-        <g class="ticks" id="ticks"></g>
-        <path id="arcFill" d="" fill="none" stroke="#F3C3C1" stroke-width="5" stroke-linecap="round"/>
-        <g id="arm"><line x1="200" y1="200" x2="200" y2="14" stroke="#F3C3C1" stroke-width="2" stroke-dasharray="4 6" opacity=".7"/><circle cx="200" cy="14" r="8" fill="#F3C3C1"/></g>
-      </svg>
-      <div class="angle-tag" aria-hidden="true"><small>Amplitude</small><b id="deg">0°</b></div>
       <div class="badge">
         <span class="dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E1613" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
         <span><b>Pós-graduada</b><span>Fisio Ortopédica e Esportiva</span></span>
       </div>
     </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true">role</div>
 </section>
-
-<!-- FAIXA -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Ortopedia</span><span>Esportiva</span><span>Pilates</span><span>Pós-cirúrgico</span><span>Atendimento domiciliar</span><span>Laserterapia</span><span>Recovery</span><span>Prevenção de lesões</span>
-    <span>Ortopedia</span><span>Esportiva</span><span>Pilates</span><span>Pós-cirúrgico</span><span>Atendimento domiciliar</span><span>Laserterapia</span><span>Recovery</span><span>Prevenção de lesões</span>
-  </div>
-</div>
 
 <!-- COMO FUNCIONA -->
 <section class="como" id="como">
   <div class="wrap">
     <div class="como-head rv">
       <span class="kicker">Como funciona</span>
-      <h2 class="t split">Do primeiro clique à <em class="s">primeira sessão.</em></h2>
+      <h2 class="t">Do primeiro clique à <em class="s">primeira sessão.</em></h2>
     </div>
     <div class="como-grid" id="comoGrid">
       <span class="como-line" aria-hidden="true"><i id="comoFill"></i></span>
@@ -520,7 +530,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
     <div class="dor-head rv">
       <div>
         <span class="kicker">Interativo</span>
-        <h2 class="t split" style="margin-top:14px">Onde está <em class="s">doendo?</em></h2>
+        <h2 class="t" style="margin-top:14px">Onde está <em class="s">doendo?</em></h2>
       </div>
       <p class="lead">Toque no ponto do corpo e veja como a fisioterapia pode ajudar. Depois é só agendar sua avaliação.</p>
     </div>
@@ -548,11 +558,9 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
           <g id="spotsLayer"></g>
         </svg>
         <div class="chips-dor" id="chipsDor"></div>
-        <div class="auto-hint" id="autoHint"><i></i><span>Demonstração automática · toque para escolher</span></div>
       </div>
 
       <div class="dor-panel rv" id="painel" aria-live="polite">
-        <span class="num" id="pNum">01</span>
         <span class="tag" id="pTag">Região</span>
         <h3 id="pTit">Joelho</h3>
         <ul id="pList"></ul>
@@ -570,7 +578,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
     <div class="trat-head rv">
       <div>
         <span class="kicker">Tratamentos</span>
-        <h2 class="t split" style="margin-top:14px">Cuidado para cada <em class="s">fase</em> do movimento</h2>
+        <h2 class="t" style="margin-top:14px">Cuidado para cada <em class="s">fase</em> do movimento</h2>
       </div>
       <p class="lead">Cada tratamento começa com uma avaliação completa e um plano feito para o seu objetivo.</p>
     </div>
@@ -644,12 +652,12 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
       <div class="casa-ico" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="#0E1613" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30 32 10l24 20"/><path d="M14 26v28h36V26"/><path d="M32 33v12M26 39h12"/></svg></div>
       <div class="casa-txt">
         <span class="kicker">Atendimento domiciliar</span>
-        <h2 class="t split">A fisioterapia <em class="s">vai até você.</em></h2>
+        <h2 class="t">A fisioterapia <em class="s">vai até você.</em></h2>
         <p class="lead">Atendimento em domicílio em Itabirito e região, com o equipamento necessário — inclusive o laser — e o mesmo cuidado do consultório.</p>
         
       </div>
       <a class="btn btn-ink casa-btn" href="agendar.html?local=domicilio">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>Agendar em casa</a>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar em casa</a>
     </div>
   </div>
 </section>
@@ -660,16 +668,11 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
     <div class="quem-fotos rv">
       <div class="f1"><img src="img/thalia-retrato.jpg" alt="Retrato da Dra. Thalia Serra de jaleco" loading="lazy" width="1000" height="1500"></div>
       <div class="f2"><img src="img/atendimento-2.jpg" alt="Thalia fazendo recovery em uma atleta durante evento de corrida" loading="lazy" width="1000" height="1497"></div>
-      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
-        <defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
-        <circle cx="60" cy="60" r="58" fill="#F3C3C1"/>
-        <text font-family="Manrope" font-weight="700" font-size="11.5" letter-spacing="3" fill="#0E1613"><textPath href="#circ">MOVIMENTO É SAÚDE • ITABIRITO • </textPath></text>
-        <path d="M44 66a18 18 0 0 1 32-10" fill="none" stroke="#0E1613" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="66" r="4" fill="#0E1613"/>
-      </svg>
+
     </div>
     <div class="rv">
       <span class="kicker">Quem sou</span>
-      <h2 class="t split">Prazer, <em class="s">Thalia.</em></h2>
+      <h2 class="t">Prazer, <em class="s">Thalia.</em></h2>
       <p>Sou <strong>fisioterapeuta pós-graduada em Ortopedia e Esportiva</strong> em Itabirito/MG. Corro, pedalo e estou na beira da pista dando suporte a atletas — por isso sei como tirar você da dor e devolver seu movimento <strong>do jeito certo</strong>.</p>
       <div class="facts">
         <div class="fact"><b>Ortopedia &amp; Esporte</b><span>Pós-graduação na área</span></div>
@@ -677,7 +680,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
         <div class="fact"><b>Itabirito · MG</b><span>E região</span></div>
       </div>
       <a class="btn btn-ink" href="agendar.html">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>Agendar com a Thalia
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar com a Thalia
       </a>
     </div>
   </div>
@@ -689,7 +692,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
     <div class="final-box rv">
       <svg class="final-arc" viewBox="0 0 400 400" aria-hidden="true"><path d="M60 300 A160 160 0 0 1 340 160" fill="none" stroke="#F3C3C1" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 10"/><circle cx="340" cy="160" r="9" fill="#F3C3C1"/></svg>
       <span class="kicker" style="color:var(--sage)">Agendamento online</span>
-      <h2 class="t split">Seu próximo passo é <em class="s">sem dor.</em></h2>
+      <h2 class="t">Seu próximo passo é <em class="s">sem dor.</em></h2>
       <p class="lead">Escolha o atendimento, o dia e o horário em menos de um minuto — no consultório ou na sua casa.</p>
       <div class="final-ctas">
         <a class="btn btn-lime" href="agendar.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agendar meu horário</a>
@@ -704,7 +707,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
   <div class="wrap fwrap">
     <div class="f-brand">
       <a href="#inicio" class="brand" aria-label="Thalia Serra — voltar ao início">
-        <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1613" stroke-width="2.4" stroke-linecap="round"><path d="M4 17a9 9 0 0 1 16-6"/><circle cx="12" cy="17" r="2.2" fill="#0E1613"/></svg></span>
+        <span class="brand-mark"><svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="22" cy="22" r="17" fill="none" stroke="currentColor" stroke-width=".6" opacity=".45"/><text x="22" y="28.6" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="19.5" fill="currentColor">TS</text></svg></span>
         <span><b>Dra. Thalia Serra</b><small>Fisioterapia</small></span>
       </a>
       <p class="f-tag">Movimento <em class="s">sem dor</em>, do consultório à sua casa.</p>
@@ -795,43 +798,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
   }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  /* ====== GONIÔMETRO do topo ====== */
-  var ticks = document.getElementById('ticks'), arm = document.getElementById('arm'),
-      arc = document.getElementById('arcFill'), deg = document.getElementById('deg'),
-      R = 186, C = 200, START = -90, MAX = 180, ns = 'http://www.w3.org/2000/svg';
-  for (var a = 0; a <= MAX; a += 5){
-    var r1 = a % 30 === 0 ? R - 14 : R - 7, t = (START + a) * Math.PI / 180,
-        l = document.createElementNS(ns, 'line');
-    l.setAttribute('x1', C + r1 * Math.cos(t)); l.setAttribute('y1', C + r1 * Math.sin(t));
-    l.setAttribute('x2', C + R * Math.cos(t));  l.setAttribute('y2', C + R * Math.sin(t));
-    if (a % 30 === 0) l.setAttribute('class', 'big');
-    ticks.appendChild(l);
-  }
-  var cur = 0, target = 135;
-  function drawAngle(v){
-    var t = (START + v) * Math.PI / 180, x = C + R * Math.cos(t), y = C + R * Math.sin(t);
-    arm.setAttribute('transform', 'rotate(' + v + ' 200 200)');
-    arc.setAttribute('d', v < .5 ? '' : 'M' + C + ' ' + (C - R) + ' A' + R + ' ' + R + ' 0 ' + (v > 180 ? 1 : 0) + ' 1 ' + x.toFixed(1) + ' ' + y.toFixed(1));
-    deg.textContent = Math.round(v) + '°';
-  }
-  var photo = document.getElementById('heroPhoto'), interacted = false, tt = 0;
-  function fromPointer(e){
-    var b = photo.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height * .45;
-    var ang = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI + 90;
-    if (ang < 0) ang += 360;
-    target = Math.max(0, Math.min(MAX, ang > 270 ? 0 : ang));
-    interacted = true;
-  }
-  document.querySelector('.hero').addEventListener('pointermove', fromPointer);
-  function loop(){
-    if (!interacted){ tt += .008; target = 20 + (Math.sin(tt) * .5 + .5) * 140; }
-    cur += (target - cur) * .08;
-    drawAngle(cur);
-    requestAnimationFrame(loop);
-  }
-  if (reduce) drawAngle(135); else loop();
-  var ls = document.getElementById('laserScene'); if (reduce && ls && ls.pauseAnimations) ls.pauseAnimations();
-
+  var ns = 'http://www.w3.org/2000/svg';
   /* ====== MAPA "ONDE DÓI" ====== */
   var regioes = [
     {id:'cervical', nome:'Pescoço e cervical', curto:'Pescoço', x:150, y:96,
@@ -860,7 +827,7 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
       como:'<b>Como eu trato:</b> laser para acelerar a recuperação, estabilidade e propriocepção, ajuste da carga de treino e trabalho na mecânica da pisada.'}
   ];
   var layer = document.getElementById('spotsLayer'), chips = document.getElementById('chipsDor');
-  var pNum = document.getElementById('pNum'), pTag = document.getElementById('pTag'), pTit = document.getElementById('pTit'),
+  var pTag = document.getElementById('pTag'), pTit = document.getElementById('pTit'),
       pList = document.getElementById('pList'), pComo = document.getElementById('pComo'), pBtn = document.getElementById('pBtn'),
       pBtnTxt = document.getElementById('pBtnTxt'), painel = document.getElementById('painel');
   var spots = {}, chipEls = {};
@@ -879,7 +846,6 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
   function pick(i, user){
     var r = regioes[i];
     Object.keys(spots).forEach(function(k){ spots[k].classList.toggle('on', k === r.id); chipEls[k].classList.toggle('on', k === r.id); spots[k].setAttribute('aria-pressed', k === r.id); });
-    pNum.textContent = String(i + 1).padStart(2, '0');
     pTag.textContent = 'Região ' + String(i + 1).padStart(2, '0') + ' de ' + regioes.length;
     pTit.textContent = r.nome;
     pList.innerHTML = r.itens.map(function(t){ return '<li>' + t + '</li>'; }).join('');
@@ -889,122 +855,11 @@ footer .credit .wrap{display:grid;grid-template-columns:1fr auto;align-items:cen
     document.getElementById('pWa').href = link('Olá, Thalia! Vim pelo site. Estou com dor na região: ' + r.nome.toLowerCase() + '. Tenho uma dúvida antes de agendar.');
     if (!reduce && painel.dataset.ready){ painel.classList.remove('swap'); void painel.offsetWidth; painel.classList.add('swap'); }
     painel.dataset.ready = '1';
-    if (user) stopAuto();
-    cur6 = i;
     if (user && window.innerWidth < 880){ var top = painel.getBoundingClientRect().top; if (top > window.innerHeight * .55) painel.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'}); }
   }
-  var cur6 = 6, autoT = null, autoOn = !reduce, hint = document.getElementById('autoHint');
-  function stopAuto(){ autoOn = false; clearInterval(autoT); autoT = null; hint.classList.add('off'); }
-  function tickAuto(){ hint.classList.remove('run'); void hint.offsetWidth; hint.classList.add('run'); }
-  function startAuto(){
-    if (!autoOn || autoT) return;
-    tickAuto();
-    autoT = setInterval(function(){ pick((cur6 + 1) % regioes.length, false); tickAuto(); }, 3200);
-  }
-  function pauseAuto(){ clearInterval(autoT); autoT = null; hint.classList.remove('run'); }
   pick(6, false);
-  if (reduce) hint.classList.add('off');
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ es.forEach(function(en){ en.isIntersecting ? startAuto() : pauseAuto(); }); }, {threshold:.45}).observe(document.querySelector('.dor-grid'));
-  }
-  painel.addEventListener('pointerenter', function(){ if (autoOn) pauseAuto(); });
-  painel.addEventListener('pointerleave', function(){ if (autoOn) startAuto(); });
-
-  /* ====== DINÂMICA ====== */
-  // palavra que gira
-  var rot = document.getElementById('rot'), verbos = ['se mover','correr','treinar','pedalar','dançar','viver'], vi = 0;
-  if (!reduce) setInterval(function(){
-    rot.classList.add('out');
-    setTimeout(function(){
-      vi = (vi + 1) % verbos.length; rot.textContent = verbos[vi];
-      rot.classList.remove('out'); rot.classList.add('pre'); void rot.offsetWidth; rot.classList.remove('pre');
-    }, 420);
-  }, 2600);
-
-  // luz da grade do topo segue o dedo/mouse
-  var hero = document.querySelector('.hero');
-  hero.addEventListener('pointermove', function(e){
-    var b = hero.getBoundingClientRect();
-    hero.style.setProperty('--mx', (e.clientX - b.left) + 'px'); hero.style.setProperty('--my', (e.clientY - b.top) + 'px');
-  });
-
-  // faixa que corre: acelera e muda de direção com a rolagem
-  var track = document.querySelector('.marquee-track'), mx = 0, vel = 0, lastY = window.scrollY, dir = 1;
-  // parallax
-  var par = [].map.call(document.querySelectorAll('.quem-fotos .f1, .quem-fotos .f2, .pista-grid figure img'), function(el){
-    return {el: el, f: el.classList.contains('f2') ? -0.10 : el.classList.contains('f1') ? 0.05 : 0.08};
-  });
-  var prog = document.getElementById('progress');
-  function frame(){
-    var y = window.scrollY, dy = y - lastY; lastY = y;
-    if (dy) dir = dy > 0 ? 1 : -1;
-    vel += (Math.min(Math.abs(dy), 60) * 0.12 - vel) * 0.08;
-    if (track){
-      var half = track.scrollWidth / 2;
-      mx -= (0.6 + vel) * dir;
-      if (mx <= -half) mx += half; if (mx > 0) mx -= half;
-      track.style.transform = 'translateX(' + mx + 'px)';
-    }
-    var vh = window.innerHeight;
-    par.forEach(function(p){
-      var r = (p.el.closest('figure') || p.el.parentNode).getBoundingClientRect();
-      if (r.bottom < -100 || r.top > vh + 100) return;
-      var off = (r.top + r.height / 2 - vh / 2) * p.f;
-      if (p.el.tagName === 'IMG') p.el.style.setProperty('--py', off.toFixed(1) + 'px');
-      else p.el.style.transform = 'translateY(' + off.toFixed(1) + 'px)';
-    });
-    var max = document.documentElement.scrollHeight - vh;
-    prog.style.transform = 'scaleX(' + (max > 0 ? y / max : 0).toFixed(4) + ')';
-    requestAnimationFrame(frame);
-  }
-  if (!reduce) requestAnimationFrame(frame);
-
-  // cards com inclinação 3D e botões magnéticos (só mouse)
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce){
-    document.querySelectorAll('.cards .card').forEach(function(c){
-      c.addEventListener('pointermove', function(e){
-        var b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
-        c.classList.add('tilt');
-        c.style.transform = 'translateY(-6px) rotateX(' + (-y * 8).toFixed(2) + 'deg) rotateY(' + (x * 10).toFixed(2) + 'deg)';
-      });
-      c.addEventListener('pointerleave', function(){ c.style.transform = ''; setTimeout(function(){ c.classList.remove('tilt'); }, 150); });
-    });
-    document.querySelectorAll('.btn').forEach(function(btn){
-      btn.classList.add('btn-mag');
-      btn.addEventListener('pointermove', function(e){
-        var b = btn.getBoundingClientRect(), x = e.clientX - b.left - b.width / 2, y = e.clientY - b.top - b.height / 2;
-        btn.style.transform = 'translate(' + (x * .18).toFixed(1) + 'px,' + (y * .3 - 2).toFixed(1) + 'px)';
-      });
-      btn.addEventListener('pointerleave', function(){ btn.style.transform = ''; });
-    });
-  }
-
 
   /* ====== CLAREZA + DINÂMICA ====== */
-  // títulos entram palavra por palavra
-  [].forEach.call(document.querySelectorAll('h2.split'), function(h){
-    var n = 0;
-    (function walk(node){
-      [].slice.call(node.childNodes).forEach(function(c){
-        if (c.nodeType === 3){
-          var frag = document.createDocumentFragment();
-          c.textContent.split(/(\s+)/).forEach(function(part){
-            if (!part) return;
-            if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
-            var w = document.createElement('span'); w.className = 'w';
-            var i = document.createElement('span'); i.textContent = part; i.style.transitionDelay = (n++ * 70) + 'ms';
-            w.appendChild(i); frag.appendChild(w);
-          });
-          c.parentNode.replaceChild(frag, c);
-        } else if (c.nodeType === 1) walk(c);
-      });
-    })(h);
-  });
-  if ('IntersectionObserver' in window && !reduce){
-    var ioS = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('go'); ioS.unobserve(en.target); } }); }, {threshold:.4});
-    document.querySelectorAll('h2.split').forEach(function(h){ ioS.observe(h); });
-  } else document.querySelectorAll('h2.split').forEach(function(h){ h.classList.add('go'); });
-
   // "Como funciona": a linha enche com a rolagem e acende cada passo
   var cg = document.getElementById('comoGrid'), cf = document.getElementById('comoFill'), passos = cg ? cg.querySelectorAll('.passo') : [];
   function comoTick(){
