@@ -591,6 +591,39 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 .casa-anim svg{width:100% !important;height:100% !important;overflow:visible}
 @media (max-width:620px){.casa-anim{width:100% !important;max-width:280px}}
 .cards .card .idx{display:none}
+
+/* ---------- VIDA ---------- */
+.dor,.trat,.stmt{position:relative;overflow:hidden;isolation:isolate}
+.orb{position:absolute;z-index:-1;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none;animation:drift 18s ease-in-out infinite alternate}
+.orb.o1{width:420px;height:420px;background:#E8D3CF;top:-120px;right:-120px}
+.orb.o2{width:360px;height:360px;background:#DCE7D6;bottom:-140px;left:-120px;animation-duration:22s;animation-delay:-6s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,30px) scale(1.08)}100%{transform:translate(30px,-20px) scale(.95)}}
+.badge{animation:archIn .9s .9s cubic-bezier(.2,.8,.2,1) both,bob 5s 2s ease-in-out infinite}
+.angle-tag{animation:archIn .9s .9s cubic-bezier(.2,.8,.2,1) both,bob 6s 2.5s ease-in-out infinite}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.kicker::before{transform-origin:left;transition:transform .8s .2s cubic-bezier(.2,.8,.2,1)}
+.rv .kicker::before,.rv.kicker::before{transform:scaleX(0)}
+.rv.in .kicker::before,.rv.in.kicker::before{transform:none}
+.hl{background:linear-gradient(transparent 62%,rgba(243,195,193,.7) 62%,rgba(243,195,193,.7) 92%,transparent 92%) no-repeat 0 0/0% 100%;transition:background-size 1.2s .5s cubic-bezier(.2,.8,.2,1);padding:0 .08em}
+.rv.in .hl{background-size:100% 100%}
+.stmt-tags span{transition:transform .25s,background .25s,color .25s,border-color .25s}
+.stmt-tags span:hover{transform:translateY(-2px);background:var(--ink);color:#fff;border-color:var(--ink)}
+.rv.in .stmt-tags span,.stmt-tags.rv.in span{animation:archIn .6s both}
+.stmt-tags.rv.in span:nth-child(2){animation-delay:.08s}.stmt-tags.rv.in span:nth-child(3){animation-delay:.16s}.stmt-tags.rv.in span:nth-child(4){animation-delay:.24s}
+.pr-grid figure{clip-path:inset(100% 0 0 0 round 26px);transition:clip-path 1.1s cubic-bezier(.65,0,.35,1)}
+.pr-grid figure.in{clip-path:inset(0 0 0 0 round 26px)}
+.pr-grid figure.pr-b{transition-delay:.15s}.pr-grid figure.pr-c{transition-delay:.3s}
+.pr-grid figure.in img{animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.pr-grid figure.rv{opacity:1;transform:none}
+.cards .card .c-ico svg{transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.cards .card:hover .c-ico svg{transform:scale(1.15) rotate(-6deg)}
+.passo .p-ic svg{transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.passo:hover .p-ic svg{transform:scale(1.15)}
+.final-box::after{content:"";position:absolute;width:600px;height:600px;border-radius:50%;left:50%;top:-300px;margin-left:-300px;background:radial-gradient(circle,rgba(243,195,193,.18),transparent 60%);animation:pulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+@media (max-width:620px){.orb.o1{width:260px;height:260px}.orb.o2{width:220px;height:220px}}
+@media (prefers-reduced-motion:reduce){.orb,.badge,.angle-tag,.pr-grid figure.in img,.final-box::after{animation:none !important}.pr-grid figure{clip-path:none}.hl{background-size:100% 100%}}
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -697,6 +730,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
 <!-- ONDE DÓI -->
 <section class="dor" id="onde-doi">
+  <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
   <div class="wrap">
     <div class="dor-head rv">
       <div>
@@ -747,6 +781,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
 <!-- TRATAMENTOS -->
 <section class="trat" id="tratamentos">
+  <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
   <div class="wrap">
     <div class="trat-head rv">
       <div>
@@ -864,8 +899,9 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
 <!-- DECLARAÇÃO -->
 <section class="stmt">
+  <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="stmt-t rv">Cada corpo tem o seu tempo.<br><em class="s">O seu tratamento também.</em></p>
+    <p class="stmt-t rv">Cada corpo tem o seu tempo.<br><em class="s hl">O seu tratamento também.</em></p>
     <div class="stmt-tags rv"><span>Pós-graduação em Ortopedia e Esportiva</span><span>Laserterapia</span><span>Recovery esportivo</span><span>Atendimento domiciliar</span></div>
   </div>
 </section>
@@ -878,9 +914,9 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       <h2 class="t">Do consultório <em class="s">à linha de chegada.</em></h2>
     </div>
     <div class="pr-grid">
-      <figure class="pr-a rv"><img src="img/atendimento-1.jpg" alt="Thalia fazendo liberação muscular em uma corredora durante evento" loading="lazy"><figcaption><b>Eventos esportivos</b><span>Recovery e suporte a atletas</span></figcaption></figure>
-      <figure class="pr-b rv"><img src="img/thalia-tablet.jpg" alt="Thalia analisando avaliação em um tablet" loading="lazy"><figcaption><b>Avaliação detalhada</b><span>Plano feito para o seu objetivo</span></figcaption></figure>
-      <figure class="pr-c rv"><img src="img/atendimento-2.jpg" alt="Thalia aplicando liberação miofascial na panturrilha de uma atleta" loading="lazy"><figcaption><b>Liberação miofascial</b><span>Recuperação muscular</span></figcaption></figure>
+      <figure class="pr-a"><img src="img/atendimento-1.jpg" alt="Thalia fazendo liberação muscular em uma corredora durante evento" loading="lazy"><figcaption><b>Eventos esportivos</b><span>Recovery e suporte a atletas</span></figcaption></figure>
+      <figure class="pr-b"><img src="img/thalia-tablet.jpg" alt="Thalia analisando avaliação em um tablet" loading="lazy"><figcaption><b>Avaliação detalhada</b><span>Plano feito para o seu objetivo</span></figcaption></figure>
+      <figure class="pr-c"><img src="img/atendimento-2.jpg" alt="Thalia aplicando liberação miofascial na panturrilha de uma atleta" loading="lazy"><figcaption><b>Liberação miofascial</b><span>Recuperação muscular</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1187,6 +1223,14 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
   }
   window.addEventListener('scroll', dockTick, {passive:true}); dockTick();
 
+  // galeria: abre as fotos quando o grupo entra na tela
+  var prg = document.querySelector('.pr-grid');
+  if (prg){
+    if ('IntersectionObserver' in window && !reduce){
+      var ioP = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ prg.querySelectorAll('figure').forEach(function(f){ f.classList.add('in'); }); ioP.disconnect(); } }, {threshold:.2});
+      ioP.observe(prg);
+    } else prg.querySelectorAll('figure').forEach(function(f){ f.classList.add('in'); });
+  }
   /* ====== REVELAR AO ROLAR ====== */
   var els = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window && !reduce){
