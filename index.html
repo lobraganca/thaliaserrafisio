@@ -658,43 +658,55 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
   .dor-x{background:rgba(255,255,255,.7) !important;border-color:rgba(255,255,255,.9) !important}
 }
 
-/* ---------- VÍDEOS (reels) ---------- */
-.vids{background:var(--ink);color:#fff;padding:clamp(44px,6vw,80px) 0;position:relative;overflow:hidden}
-.vids::before{content:"";position:absolute;width:700px;height:700px;right:-260px;top:-360px;background:radial-gradient(circle,rgba(126,154,116,.3),transparent 60%);pointer-events:none}
-.vd-head{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
-.vd-head h2{margin-top:12px}.vd-head h2 em.s{color:var(--lime)}
-.vd-ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.vd-chips{display:flex;gap:6px;flex-wrap:wrap}
-.vd-chips button{font:700 13px var(--body);color:#C9D6CF;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 14px;cursor:pointer;transition:all .2s}
-.vd-chips button[aria-pressed="true"]{background:var(--lime);color:var(--ink);border-color:var(--lime)}
-.vd-arr{display:flex;gap:6px}
-.vd-arr button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:20px;cursor:pointer}
-.vd-arr button:hover{border-color:var(--lime);color:var(--lime)}
-.reels{position:relative;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 14px;scrollbar-width:none;outline:0}
+/* ---------- VÍDEOS (painel estilo Leopardos/Formas) ---------- */
+.vids{padding:clamp(44px,6vw,80px) 0;background:var(--paper)}
+.vd-head{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:22px}
+.vd-head h2 em.s{color:var(--bordo)}
+.vd-head .lead{margin:0}
+.mj{position:relative;background:radial-gradient(120% 120% at 0% 0%,#2E4A3E 0%,#16221E 55%,#0E1613 100%);color:#fff;border-radius:34px;padding:28px 0 26px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(14,22,19,.6)}
+.mj-topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mj-topo path{fill:none;stroke:rgba(243,195,193,.09);stroke-width:1.5}
+.rl-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 32px 10px}
+.mj-stories{display:flex;gap:16px;overflow-x:auto;padding:4px 2px 6px;scrollbar-width:none}
+.mj-stories::-webkit-scrollbar{display:none}
+.mj-stories button{flex:0 0 auto;border:0;background:none;padding:0;color:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;font:700 12.5px var(--body);opacity:.65;transition:opacity .2s}
+.mj-stories button[aria-pressed="true"]{opacity:1}
+.mj-stories b{width:66px;height:66px;border-radius:50%;padding:3px;background:conic-gradient(#F3C3C1,#E57B8F,#7B1E2E,#AFC4A5,#F3C3C1);display:block;transition:transform .25s}
+.mj-stories button:hover b{transform:scale(1.06)}
+.mj-stories button[aria-pressed="false"] b{background:rgba(255,255,255,.22)}
+.mj-stories i{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#16221E;border:3px solid #16221E;color:#F3C3C1}
+.mj-stories i svg{width:28px;height:28px}
+.rl-arr{display:flex;gap:8px;flex:0 0 auto}
+.rl-arr button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:26px;cursor:pointer}
+.rl-arr button:hover{background:rgba(255,255,255,.22)}
+.reels{position:relative;z-index:1;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 32px 20px;scroll-padding-left:32px;scrollbar-width:none;outline:0}
 .reels::-webkit-scrollbar{display:none}
-.reel{position:relative;flex:0 0 auto;width:232px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;scroll-snap-align:start;border:0;padding:0;cursor:pointer;background:#16221E;color:#fff;text-align:left;font:inherit;transition:transform .3s}
+.reel{position:relative;flex:0 0 auto;width:clamp(240px,21vw,280px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;scroll-snap-align:start;border:0;padding:0;cursor:pointer;background:#0E1613;color:#fff;text-align:left;font:inherit;text-decoration:none;transition:transform .3s;display:block}
 .reel:hover{transform:translateY(-4px)}
 .reel video,.reel img.rl-art,.reel .rl-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block;background:#000}
-.reel .rl-ph{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(80% 60% at 50% 40%,#3E5649,#1A2722 70%,#0E1613)}
-.reel .rl-ph svg{width:70px;height:70px;color:rgba(243,195,193,.75)}
-.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),transparent 30%,transparent 55%,rgba(0,0,0,.82));pointer-events:none;z-index:2;transition:opacity .4s}
-.reel .rl-meta{position:absolute;left:14px;right:14px;bottom:14px;z-index:3;transition:opacity .4s}
-.reel .rl-cat{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:3px 8px;border-radius:6px;margin-bottom:6px}
-.reel .rl-meta b{display:block;font-family:var(--disp);font-size:19px;line-height:1.1;letter-spacing:-0.02em}
-.reel .rl-play{position:absolute;left:50%;top:50%;z-index:3;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--ink);display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .25s,opacity .3s}
-.reel .rl-play svg{width:24px;height:24px;margin-left:3px}
-.reel:hover .rl-play{transform:translate(-50%,-50%) scale(1.08)}
-.reel .rl-soon{position:absolute;left:14px;top:14px;z-index:3;font-size:12px;font-weight:700;color:#fff;opacity:.85}
-.reel .rl-snd{position:absolute;right:12px;top:12px;z-index:4;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);display:grid;place-items:center;font-size:16px;backdrop-filter:blur(4px)}
+.reel span.rl-art{position:absolute;inset:0;display:grid;place-items:center}
+.reel span.rl-art svg{width:104px;height:104px;color:rgba(255,255,255,.85);opacity:.5}
+.reel.exercicios span.rl-art{background:radial-gradient(80% 60% at 50% 40%,#7FA571,#2F4A35 70%,#0F1C15)}
+.reel.dicas span.rl-art{background:radial-gradient(80% 60% at 50% 40%,#E8A7A5,#8E3A4E 70%,#2E0F1A)}
+.reel.laser span.rl-art{background:radial-gradient(80% 60% at 50% 40%,#FF6B7D,#7B1E2E 70%,#24060D)}
+.reel.atendimentos span.rl-art{background:radial-gradient(80% 60% at 50% 40%,#C9B48C,#6B5634 70%,#22180B)}
+.reel.eventos span.rl-art{background:radial-gradient(80% 60% at 50% 40%,#7FB0C9,#2B4F63 70%,#0D1A22)}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 28%,transparent 55%,rgba(0,0,0,.82));pointer-events:none;z-index:2;transition:opacity .4s}
+.reel .rl-meta{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;transition:opacity .4s}
+.reel .rl-ep{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:#F3C3C1;color:#3A0E18;padding:4px 9px;border-radius:6px;margin-bottom:8px}
+.reel .rl-meta b{display:block;font-family:var(--disp);font-weight:800;font-size:26px;line-height:1;letter-spacing:-0.03em}
+.reel .rl-play{position:absolute;left:50%;top:50%;z-index:3;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.94);color:#0E1613;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 0 0 8px rgba(255,255,255,.22);transition:transform .3s,opacity .3s}
+.reel .rl-play svg{width:22px;height:22px;margin-left:3px}
+.reel:hover .rl-play{transform:translate(-50%,-50%) scale(1.1)}
+.reel .rl-soon{position:absolute;left:14px;top:14px;z-index:3;font-family:var(--serif);font-style:italic;font-size:19px;color:#fff;opacity:.9}
+.reel .rl-snd{position:absolute;right:12px;top:12px;z-index:4;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.45);display:grid;place-items:center;font-size:16px;backdrop-filter:blur(4px)}
 .reel.playing .rl-meta,.reel.playing .rl-play{opacity:0}
 .reel.playing::after{opacity:.3}
-.reel.playing.paused .rl-play,.reel.playing.paused .rl-meta{opacity:1}
 .reel.loading::before{content:"";position:absolute;left:50%;top:50%;z-index:5;width:34px;height:34px;margin:-17px;border-radius:50%;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spin .8s linear infinite}
 .reel .rl-frame{z-index:4}
-.vd-ig{display:inline-block;margin-top:8px;color:#C9D6CF;font-size:14px;text-decoration:none}
-.vd-ig b{color:var(--lime)}
-@media (max-width:620px){.reel{width:62vw}.vd-arr{display:none}}
-
+.mj-ig{position:relative;z-index:1;display:inline-block;margin:4px 32px 0;color:#C9D6CF;font-size:14px;text-decoration:none}
+.mj-ig b{color:#F3C3C1}
+@media (max-width:760px){.mj{border-radius:26px;margin-inline:-6px;padding:20px 0}.rl-top{padding:0 18px 8px}.rl-arr{display:none}.reels{padding:6px 18px 14px;gap:12px;scroll-padding-left:18px}.reel{width:min(72vw,300px)}.reel .rl-meta b{font-size:24px}.reel .rl-play{width:50px;height:50px}.mj-ig{margin:4px 18px 0}}
 /* ---------- DEPOIMENTOS ---------- */
 .deps{position:relative;overflow:hidden;isolation:isolate;background:var(--cream);padding:clamp(44px,6vw,80px) 0}
 .dp-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:center}
@@ -737,7 +749,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 .dp-msg{margin:0 0 12px;border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600;background:#FBE9EA;color:#8A1C2B}
 .dp-msg.ok{background:#E2F2E8;color:#1F6B40}
 @media (max-width:880px){.dp-grid{grid-template-columns:minmax(0,1fr)}.dp-deck{height:330px}.dp-card{height:290px;padding:24px 22px 20px}.dp-card q{font-size:19px}.dp-card[data-p="1"]{transform:translate(10px,10px) rotate(3deg) scale(.96)}.dp-card[data-p="2"]{transform:translate(18px,20px) rotate(6deg) scale(.92)}}
-.dp-modal[hidden],.vd-chips[hidden],.dp-nav[hidden]{display:none !important}
+.dp-modal[hidden],.dp-nav[hidden]{display:none !important}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .c2-map{background:radial-gradient(120% 90% at 50% 0%,#FFF7F5,#F4DCD8 70%) !important;aspect-ratio:5/4 !important}
 .c2-map .iso{width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;transform-origin:55% 60%;animation:isoCam 14s ease-in-out infinite alternate;transform-origin:50% 60%}
@@ -1079,15 +1091,19 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 <section class="vids" id="videos-sec">
   <div class="wrap">
     <div class="vd-head rv">
-      <div><span class="kicker" style="color:var(--sage)">Vídeos</span>
-      <h2 class="t">Fisioterapia <em class="s">em movimento.</em></h2></div>
-      <div class="vd-ctrl">
-        <div class="vd-chips" id="vdChips" role="group" aria-label="Filtrar vídeos"></div>
-        <div class="vd-arr"><button type="button" id="vdPrev" aria-label="Voltar">‹</button><button type="button" id="vdNext" aria-label="Avançar">›</button></div>
-      </div>
+      <span class="kicker">Vídeos</span>
+      <h2 class="t">Fisioterapia <em class="s">em movimento.</em></h2>
+      <p class="lead">Exercícios, dicas, laserterapia e os bastidores dos atendimentos. Escolha uma categoria e dê o play.</p>
     </div>
-    <div class="reels" id="reels" tabindex="0" aria-label="Vídeos — role para o lado"></div>
-    <a class="vd-ig" href="https://www.instagram.com/thaliaserra_fisio/" target="_blank" rel="noopener">mais no Instagram <b>@thaliaserra_fisio</b> →</a>
+    <div class="mj rv">
+      <svg class="mj-topo" viewBox="0 0 800 500" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 80C160 30 300 140 480 90S760 30 820 70"/><path d="M-20 200C180 150 320 260 520 210S760 150 820 190"/><path d="M-20 330C200 280 340 390 540 340S760 280 820 320"/><path d="M-20 450C240 400 380 510 580 460S760 400 820 440"/></svg>
+      <div class="rl-top">
+        <div class="mj-stories" id="vdChips" role="group" aria-label="Filtrar vídeos"></div>
+        <div class="rl-arr"><button type="button" id="vdPrev" aria-label="Voltar">‹</button><button type="button" id="vdNext" aria-label="Avançar">›</button></div>
+      </div>
+      <div class="reels" id="reels" tabindex="0" aria-label="Vídeos — role para o lado"></div>
+      <a class="mj-ig" href="https://www.instagram.com/thaliaserra_fisio/" target="_blank" rel="noopener">mais no Instagram <b>@thaliaserra_fisio</b> →</a>
+    </div>
   </div>
 </section>
 
@@ -1380,7 +1396,17 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 
   /* ====== VÍDEOS ====== */
   (function(){
-    var CATS = {todos:'Todos', exercicios:'Exercícios', dicas:'Dicas', laser:'Laserterapia', atendimentos:'Atendimentos', eventos:'Eventos'};
+    var CATS = [['todos','Todos'],['exercicios','Exercícios'],['dicas','Dicas'],['laser','Laser'],['atendimentos','Atendimentos'],['eventos','Eventos']];
+    var CN = {}; CATS.forEach(function(c){ CN[c[0]] = c[1]; });
+    var ICO = {
+      todos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17a9 9 0 0 1 14 0"/><path d="M12 17V9"/><circle cx="12" cy="17" r="1.8" fill="currentColor"/></svg>',
+      exercicios:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12"/></svg>',
+      dicas:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
+      laser:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 10"/><path d="M14 10l2-2"/><circle cx="18" cy="6" r="2.5"/><path d="M18 1.5V2M22.5 6H22M21.2 2.8l-.4.4"/></svg>',
+      atendimentos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M8.5 12h2l1-2 1.5 4 1-2h1.5"/></svg>',
+      eventos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4" r="2"/><path d="m8 21 3-6 3 2v5"/><path d="m6 12 3-4 5 1 3 4 3-1"/></svg>'
+    };
+    var DEMO = [{cat:'exercicios', titulo:'Exercícios em casa'},{cat:'laser', titulo:'Laserterapia na prática'},{cat:'dicas', titulo:'Dicas para a sua postura'},{cat:'atendimentos', titulo:'Bastidores dos atendimentos'},{cat:'eventos', titulo:'Recovery em eventos'}];
     var IG = 'https://www.instagram.com/thaliaserra_fisio/';
     var lista = [], filtro = 'todos', reels = document.getElementById('reels'), chips = document.getElementById('vdChips');
     var PLAY = '<span class="rl-play"><svg viewBox="0 0 16 16"><path d="M4.5 2.5v11l9-5.5z" fill="currentColor"/></svg></span>';
@@ -1391,27 +1417,23 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       if ((m = l.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([\w-]{10,})/))) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
       return null; }
     function render(){
-      var usados = {}; lista.forEach(function(v){ usados[v.cat] = 1; });
-      chips.innerHTML = Object.keys(CATS).filter(function(k){ return k === 'todos' || usados[k]; }).map(function(k){ return '<button type="button" data-c="' + k + '" aria-pressed="' + (filtro === k) + '">' + CATS[k] + '</button>'; }).join('');
-      chips.hidden = Object.keys(usados).length < 2;
-      var L = lista.filter(function(v){ return filtro === 'todos' || v.cat === filtro; });
-      if (!lista.length) chips.hidden = true;
-      if (!L.length){
-        reels.innerHTML = ['laser','exercicios','dicas','atendimentos'].map(function(c){
-          return '<a class="reel" href="' + IG + '" target="_blank" rel="noopener"><span class="rl-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></span><span class="rl-soon">vídeo em breve</span><span class="rl-meta"><span class="rl-cat">' + CATS[c] + '</span><b>Acompanhe no Instagram</b></span></a>';
-        }).join(''); return;
-      }
+      var demo = !lista.length, L = demo ? DEMO : lista;
+      chips.innerHTML = CATS.filter(function(c){ return c[0] === 'todos' || L.some(function(v){ return v.cat === c[0]; }); })
+        .map(function(c){ return '<button type="button" data-c="' + c[0] + '" aria-pressed="' + (filtro === c[0]) + '"><b><i>' + ICO[c[0]] + '</i></b>' + c[1] + '</button>'; }).join('');
+      var ep = 0;
       reels.innerHTML = L.map(function(v, i){
+        if (filtro !== 'todos' && v.cat !== filtro) return '';
+        ep++; var n = 'Ep. ' + String(ep).padStart(2, '0') + ' · ' + (CN[v.cat] || 'Vídeo');
+        var meta = '<span class="rl-meta"><span class="rl-ep">' + n + '</span><b>' + esc(v.titulo) + '</b></span>';
+        var art = '<span class="rl-art">' + ICO[v.cat] + '</span>';
+        if (demo) return '<a class="reel ' + v.cat + '" href="' + IG + '" target="_blank" rel="noopener">' + art + '<span class="rl-soon">vídeo em breve</span>' + PLAY + meta + '</a>';
         var file = v.video && !embed(v.video);
-        return '<button type="button" class="reel" data-i="' + lista.indexOf(v) + '" aria-label="Assistir: ' + esc(v.titulo) + '">' +
+        return '<button type="button" class="reel ' + v.cat + '" data-i="' + i + '" aria-label="Assistir: ' + esc(v.titulo) + '">' +
           (file ? '<video class="rl-vid" muted loop playsinline preload="metadata" data-src="' + esc(v.video) + '"' + (v.capa ? ' poster="' + esc(v.capa) + '"' : '') + '></video><span class="rl-snd">🔇</span>'
-                : v.capa ? '<img class="rl-art" src="' + esc(v.capa) + '" alt="" loading="lazy">' : '<span class="rl-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 5v14l11-7z"/></svg></span>') +
-          (file ? '' : PLAY) +
-          '<span class="rl-meta"><span class="rl-cat">' + (CATS[v.cat] || 'Vídeo') + '</span><b>' + esc(v.titulo) + '</b></span></button>';
+                : v.capa ? '<img class="rl-art" src="' + esc(v.capa) + '" alt="" loading="lazy">' + PLAY : art + PLAY) + meta + '</button>';
       }).join('');
       observar();
     }
-    // vídeos próprios tocam sozinhos, sem som, quando aparecem (um por vez)
     var io = null;
     function observar(){
       if (io) io.disconnect(); if (!('IntersectionObserver' in window)) return;
@@ -1427,7 +1449,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       var card = e.target.closest('button.reel'); if (!card) return;
       var v = lista[+card.dataset.i]; if (!v) return;
       var vd = card.querySelector('.rl-vid');
-      if (vd){ // liga/desliga o som; pausa os outros
+      if (vd){
         var ligar = vd.muted;
         reels.querySelectorAll('.rl-vid').forEach(function(o){ if (o !== vd){ o.muted = true; var s2 = o.closest('.reel').querySelector('.rl-snd'); if (s2) s2.textContent = '🔇'; } });
         vd.muted = !ligar; card.querySelector('.rl-snd').textContent = vd.muted ? '🔇' : '🔊';
