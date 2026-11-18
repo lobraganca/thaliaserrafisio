@@ -297,7 +297,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
   var esc = function(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
   var DOW = ['dom','seg','ter','qua','qui','sex','sáb'], DOWL = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
   var MES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'], MESL = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-  var SERV = {avaliacao:'Avaliação fisioterapêutica', ortopedica:'Fisioterapia ortopédica', esportiva:'Fisioterapia esportiva', pilates:'Pilates', laser:'Laserterapia', posop:'Reabilitação pós-operatória', recovery:'Recovery / liberação miofascial'};
+  var SERV = {avaliacao:'Avaliação fisioterapêutica', ortopedica:'Fisioterapia ortopédica', esportiva:'Fisioterapia esportiva', laser:'Laserterapia', posop:'Reabilitação pós-operatória', recovery:'Recovery / liberação miofascial'};
   var STN = {pendente:'A confirmar', confirmado:'Confirmado', concluido:'Concluído', faltou:'Faltou', cancelado:'Cancelado'};
   var PREVIA = location.protocol === 'file:' || /claude|anthropic|usercontent/i.test(location.hostname) || location.origin === 'null';
   var tok = '', demo = false, D = {ags:[], bloq:[], cfg:null, hoje:''}, filtro = 'proximos', diaSel = null, conhecidos = null;

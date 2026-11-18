@@ -16,7 +16,6 @@ export const SERVICOS = {
   avaliacao: "Avaliação fisioterapêutica",
   ortopedica: "Fisioterapia ortopédica",
   esportiva: "Fisioterapia esportiva",
-  pilates: "Pilates",
   laser: "Laserterapia",
   posop: "Reabilitação pós-operatória",
   recovery: "Recovery / liberação miofascial",

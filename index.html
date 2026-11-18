@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dra. Thalia Serra | Fisioterapia Ortopédica e Esportiva em Itabirito</title>
-<meta name="description" content="Fisioterapeuta Thalia Serra, pós-graduada em Fisioterapia Ortopédica e Esportiva em Itabirito/MG. Reabilitação com foco em resultado: prevenção, performance e recuperação. Pilates e atendimento domiciliar.">
+<meta name="description" content="Fisioterapeuta Thalia Serra, pós-graduada em Fisioterapia Ortopédica e Esportiva em Itabirito/MG. Reabilitação com foco em resultado: prevenção, performance e recuperação. atendimento domiciliar.">
 <meta name="theme-color" content="#0E1613">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dra. Thalia Serra | Fisioterapia Ortopédica e Esportiva">
@@ -589,6 +589,11 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 .hero-who{margin-bottom:10px}
 .hero h1{margin:14px 0 14px !important}
 .hero p.sub{margin-bottom:22px !important}
+@media (min-width:981px){.cards{grid-template-columns:repeat(6,minmax(0,1fr))}.cards .card{grid-column:span 2}.cards .card:nth-child(-n+2){grid-column:span 3}}
+.casa-anim{width:clamp(150px,17vw,220px) !important;aspect-ratio:200/120 !important;border-radius:24px !important;padding:8px}
+.casa-anim svg{width:100% !important;height:100% !important;overflow:visible}
+@media (max-width:620px){.casa-anim{width:100% !important;max-width:280px}}
+.cards .card .idx{display:none}
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -760,9 +765,6 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       <article class="card feat rv"><span class="idx">02</span>
         <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4" r="2"/><path d="m8 21 3-6 3 2v5"/><path d="m6 12 3-4 5 1 3 4 3-1"/></svg></span>
         <h3>Fisioterapia Esportiva</h3><p>Lesões e retorno seguro ao esporte.</p><a class="c-go" href="agendar.html?servico=esportiva" aria-label="Agendar Fisioterapia Esportiva">Agendar <span aria-hidden="true">→</span></a></article>
-      <article class="card rv"><span class="idx">03</span>
-        <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M4 21h16"/><path d="M12 7v6l-5 4"/><path d="m12 13 5 4"/><path d="M7 10h10"/></svg></span>
-        <h3>Pilates</h3><p>Força, postura e mobilidade.</p><a class="c-go" href="agendar.html?servico=pilates" aria-label="Agendar Pilates">Agendar <span aria-hidden="true">→</span></a></article>
       <article class="card laser rv">
         <svg class="laser-scene" id="laserScene" viewBox="0 0 210 130" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
           <defs>
@@ -820,10 +822,10 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
           </g>
         </svg>
         <h3>Laserterapia</h3><p>Alivia dor e acelera a recuperação.</p><a class="c-go" href="agendar.html?servico=laser" aria-label="Agendar Laserterapia">Agendar <span aria-hidden="true">→</span></a></article>
-      <article class="card rv"><span class="idx">05</span>
+      <article class="card rv"><span class="idx">03</span>
         <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M8.5 12h2l1-2 1.5 4 1-2h1.5"/></svg></span>
         <h3>Pós-operatório</h3><p>Reabilitação após cirurgia, em etapas.</p><a class="c-go" href="agendar.html?servico=posop" aria-label="Agendar Pós-operatório">Agendar <span aria-hidden="true">→</span></a></article>
-      <article class="card rv"><span class="idx">06</span>
+      <article class="card rv"><span class="idx">04</span>
         <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
         <h3>Recovery</h3><p>Liberação e recuperação muscular.</p><a class="c-go" href="agendar.html?servico=recovery" aria-label="Agendar Recovery">Agendar <span aria-hidden="true">→</span></a></article>
     </div>
@@ -835,7 +837,22 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 <section class="casa" id="domicilio">
   <div class="wrap">
     <div class="casa-box rv">
-      <div class="casa-ico" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="#0E1613" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30 32 10l24 20"/><path d="M14 26v28h36V26"/><path d="M32 33v12M26 39h12"/></svg></div>
+      <div class="casa-ico casa-anim" aria-hidden="true"><svg viewBox="0 0 200 120" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- caminho do consultório até a casa -->
+        <path id="rota" d="M22 92 C60 92 62 40 100 52 S150 96 172 70" stroke="#E7C9C7" stroke-width="3" stroke-dasharray="2 8"/>
+        <path d="M22 92 C60 92 62 40 100 52 S150 96 172 70" stroke="#7B1E2E" stroke-width="3" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"><animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.55;.85;1" dur="4.5s" repeatCount="indefinite"/></path>
+        <!-- consultório (pino) -->
+        <g transform="translate(22 92)"><circle r="9" fill="#0E1613"/><circle r="3.5" fill="#F3C3C1"/></g>
+        <!-- fisioterapeuta indo -->
+        <circle r="7" fill="#7B1E2E" stroke="#fff" stroke-width="2.5"><animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;1;1;0" keyTimes="0;.55;.85;1" calcMode="linear"><mpath href="#rota"/></animateMotion></circle>
+        <!-- casa -->
+        <g transform="translate(172 58)" stroke="#0E1613" stroke-width="3.2">
+          <path d="M-18 4 0-12 18 4" />
+          <path d="M-13 0v22h26V0" fill="#fff"/>
+          <path d="M0 6v9M-4.5 10.5h9" stroke="#7B1E2E"><animate attributeName="stroke" values="#0E1613;#0E1613;#7B1E2E;#7B1E2E;#0E1613" keyTimes="0;.5;.56;.85;1" dur="4.5s" repeatCount="indefinite"/></path>
+        </g>
+        <circle cx="172" cy="66" r="10" fill="none" stroke="#7B1E2E" stroke-width="2" opacity="0"><animate attributeName="r" values="10;10;34;34" keyTimes="0;.55;.8;1" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;.6;0;0" keyTimes="0;.54;.56;.8;1" dur="4.5s" repeatCount="indefinite"/></circle>
+      </svg></div>
       <div class="casa-txt">
         <span class="kicker">Atendimento domiciliar</span>
         <h2 class="t">A fisioterapia <em class="s">vai até você.</em></h2>
@@ -852,7 +869,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
 <section class="stmt">
   <div class="wrap">
     <p class="stmt-t rv">Cada corpo tem o seu tempo.<br><em class="s">O seu tratamento também.</em></p>
-    <div class="stmt-tags rv"><span>Pós-graduação em Ortopedia e Esportiva</span><span>Laserterapia</span><span>Pilates</span><span>Recovery esportivo</span><span>Atendimento domiciliar</span></div>
+    <div class="stmt-tags rv"><span>Pós-graduação em Ortopedia e Esportiva</span><span>Laserterapia</span><span>Recovery esportivo</span><span>Atendimento domiciliar</span></div>
   </div>
 </section>
 
@@ -938,7 +955,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       <p class="f-h">Acompanhe</p>
       <a class="f-plat" href="https://www.instagram.com/thaliaserra_fisio/" target="_blank" rel="noopener"><img class="f-logo" src="img/thalia-retrato.jpg" alt="" width="40" height="40" style="object-position:50% 18%"><span><b>Instagram</b><small>@thaliaserra_fisio</small></span><svg class="go" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       <a class="f-plat" href="#onde-doi"><span class="f-logo ic2"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11h8M12 15l-3 6M12 15l3 6"/></svg></span><span><b>Onde dói?</b><small>Mapa interativo do corpo</small></span><svg class="go" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-      <a class="f-plat" href="#tratamentos"><span class="f-logo ic2"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Tratamentos</b><small>Ortopedia, esporte, Pilates e laser</small></span><svg class="go" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="f-plat" href="#tratamentos"><span class="f-logo ic2"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Tratamentos</b><small>Ortopedia, esporte, laser e recovery</small></span><svg class="go" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
   <div class="credit">
@@ -1087,7 +1104,7 @@ section.como{padding:clamp(44px,6vw,72px) 0 clamp(12px,2vw,24px);background:var(
       como:'<b>Como eu trato:</b> laser e terapia manual para a dor, exercícios de mobilidade e força da mão e ajustes no uso do celular, do mouse e do treino.'},
     {id:'lombar', nome:'Coluna lombar', curto:'Lombar', x:150, y:240,
       itens:['Lombalgia e dor ao acordar','Hérnia de disco','Dor ciática que desce pela perna','Dor ao ficar muito tempo sentado'],
-      como:'<b>Como eu trato:</b> terapia manual para aliviar a crise e fortalecimento do core (com Pilates quando faz sentido) para a coluna ficar protegida.'},
+      como:'<b>Como eu trato:</b> terapia manual para aliviar a crise e fortalecimento do core para a coluna ficar protegida.'},
     {id:'quadril', nome:'Quadril', curto:'Quadril', x:192, y:292,
       itens:['Bursite no quadril','Dor na virilha de corredores','Impacto femoroacetabular','Pós-prótese de quadril'],
       como:'<b>Como eu trato:</b> mobilidade, força de glúteos e controle do movimento — a base para caminhar, correr e subir escadas sem dor.'},
