@@ -6,7 +6,8 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0E1613">
 <title>Área da Thalia · Agenda</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230E1613'/%3E%3Cg fill='none' stroke='%23F3C3C1' stroke-linecap='round'%3E%3Cpath d='M13 36a19 19 0 0 1 38 0' stroke-width='4.5'/%3E%3Cpath d='M32 36v17' stroke-width='4.5'/%3E%3C/g%3E%3Ccircle cx='32' cy='36' r='5' fill='%23F3C3C1'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400}
 .login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(800px 500px at 80% 10%,rgba(126,154,116,.35),transparent 60%),var(--ink)}
 .l-card{width:100%;max-width:400px;background:var(--paper);border-radius:28px;padding:32px 28px;box-shadow:0 40px 90px rgba(0,0,0,.4)}
 .mark{width:52px;height:52px;display:grid;place-items:center;color:var(--ink)}
-.top .mark{color:var(--rose)}
+.top .mark{color:var(--sage)}
 .l-card h1{margin:18px 0 4px;font-family:var(--disp);font-size:30px;letter-spacing:-0.03em}
 .l-card p{margin:0 0 22px;color:var(--muted)}
 .fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
@@ -204,6 +205,11 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
 .vid-o button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer}
 .vid-add{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .vid-prog{margin:10px 0 0;font-size:14px;font-weight:700;color:var(--bordo)}
+
+/* logo oficial (marca TMS) */
+.lg{display:block;width:46px;height:36px;background:currentColor;-webkit-mask:url(img/logo-marca.png) center/contain no-repeat;mask:url(img/logo-marca.png) center/contain no-repeat}
+.brand b,.top-brand b{font-family:var(--serif)!important;font-weight:400!important;font-size:24px!important;letter-spacing:.01em!important;line-height:1!important}
+.brand b i,.top-brand b i{font-style:normal!important;font-size:1em!important;color:inherit!important}
 </style>
 </head>
 <body>
@@ -211,7 +217,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
 <!-- LOGIN -->
 <section class="login" id="vLogin">
   <form class="l-card" id="fLogin">
-    <span class="mark"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true" fill="none" stroke-linecap="round"><path d="M7 25a15 15 0 0 1 30 0" stroke="currentColor" stroke-width="3.2"/><path d="M22 25V40" stroke="currentColor" stroke-width="3.2"/><path d="M22 25 32.6 14.4" stroke="currentColor" stroke-width="1.6" opacity=".55"/><circle cx="22" cy="25" r="3.6" fill="currentColor"/></svg></span>
+    <span class="mark"><i class="lg" aria-hidden="true"></i></span>
     <h1>Área da <em class="s">Thalia</em></h1>
     <p>Entre para ver e organizar seus agendamentos.</p>
     <p class="msg-err" id="lErr" hidden></p>
@@ -228,7 +234,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 100px}
   <header class="top">
     <div class="top-in">
       <div class="top-brand">
-        <span class="mark"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true" fill="none" stroke-linecap="round"><path d="M7 25a15 15 0 0 1 30 0" stroke="currentColor" stroke-width="3.2"/><path d="M22 25V40" stroke="currentColor" stroke-width="3.2"/><path d="M22 25 32.6 14.4" stroke="currentColor" stroke-width="1.6" opacity=".55"/><circle cx="22" cy="25" r="3.6" fill="currentColor"/></svg></span>
+        <span class="mark"><i class="lg" aria-hidden="true"></i></span>
         <span><b>Agenda · Dra. Thalia Serra</b><small class="live"><i></i><span id="sync">Atualizada agora</span></small></span>
       </div>
       <button class="btn b-rose" id="bNovo" style="min-height:40px"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span class="hide-m">Novo agendamento</span></button>
